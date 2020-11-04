@@ -93,7 +93,7 @@ function getCo($alpha)
   {
     for($y = getMinYear(); $y <= getMaxYear(); $y++)
     {
-      for($num = 0; $num < 40; $num++)
+      for($num = 0; $num < 50; $num++)
       {
         //if we find the alpha, set co variable to current company index
         if($alpha == substr($orig[$c][$y][$num][0], 0, 6))
@@ -130,7 +130,7 @@ function addFeedback($alpha, $feedback)
   {
     for($y = getMinYear(); $y <= getMaxYear(); $y++)
     {
-      for($num = 0; $num < 40; $num++)
+      for($num = 0; $num < 50; $num++)
       {
         //if we find the alpha, append the mid's array with given feedback
         if($alpha == substr($orig[$c][$y][$num][0], 0, 6))
@@ -176,7 +176,7 @@ function getFeedback($alpha)
   {
     for($y = getMinYear(); $y <= getMaxYear(); $y++)
     {
-      for($num = 0; $num < 40; $num++)
+      for($num = 0; $num < 50; $num++)
       {
         //if we find the alpha, grab the mid array and cut off the first
         //index (which contains the mid's name) then set it as the return
@@ -212,7 +212,7 @@ function convTextToSer()
   }
 
   //set up the array that stores all midshipman information
-  $allData = [31][getMaxYear()+1][40][0];
+  $allData = [31][getMaxYear()+1][50][0];
 
   //go through allData array setting proper array indicies for company, year,
   //and then setting a 0-39 number for each mid
@@ -221,7 +221,7 @@ function convTextToSer()
     $company = (int) $allMids[$i][2];
     $year = (int) substr($allMids[$i][0], 0, 2);
     $num = 0;
-    for($j = 0; $j < 40; $j++)
+    for($j = 0; $j < 50; $j++)
     {
       //assign number by looking through array of mids in same year and co
       //until there is a null value
@@ -271,14 +271,14 @@ function getMidsInCo($alpha)
   {
     for($y = getMinYear(); $y <= getMaxYear(); $y++)
     {
-      for($num = 0; $num < 40; $num++)
+      for($num = 0; $num < 50; $num++)
       {
         //if we find the alpha, add all mids in the same company to the
         //return array
         if($alpha == substr($orig[$c][$y][$num][0], 0, 6))
         {
           $array = $orig[$c][$p][$y];
-          for($i = 1; $i < 40; $i++)
+          for($i = 1; $i < 50; $i++)
           {
             array_push($mids, substr($orig[$c][$y][$i][0], 0));
           }

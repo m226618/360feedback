@@ -13,13 +13,13 @@ for($i = 0; $i < count($unrefData)-1; $i++)
   }
   array_push($allMids, $curline);
 }
-$allData = [31][$maxYear+1][40][0];
+$allData = [31][$maxYear+1][50][0];
 for($i = 0; $i < count($allMids); $i++)
 {
   $company = (int) $allMids[$i][2];
   $year = (int) substr($allMids[$i][0], 0, 2);
   $num = 0;
-  for($j = 0; $j < 40; $j++)
+  for($j = 0; $j < 50; $j++)
   {
     if($allData[$company][$year][$j] != NULL)
     {
