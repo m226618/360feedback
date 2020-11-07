@@ -26,7 +26,7 @@
   }
   else
   {
-    session_destroy();
+    unset($_SESSION["user"]);
     echo "<h2>You are now logged out</h2>";
     header("Location: welcome.html");
   }
