@@ -17,6 +17,8 @@
 	  //feedback form (action="submit.php")-->
 
 	  <?php
+    require_once("middata_functions.inc.php");
+
 	  if(empty($_SESSION["user"]) && !isset($_SESSION["user"]))
 	    {
 	        echo "<h2>You are not logged in</h2><p>Go to the login page <a href='login.php'>here</a></p>";
@@ -24,9 +26,38 @@
 		    else
 		      {
 			      echo "<a href=\"myAccount.php\"> My Account </a> <br>
+
   <a href=\"logout.php\"> Logout </a>";
-	}
   ?>
+
+  <form method="post" action="feedbackHandler.php">
+
+    <label> Select a Mid to provide feedback for:
+      <select name="mid">
+        <?php
+          echo $_SESSION["user"];
+          $alpha1 = substr($_SESSION["user"], 1, 7);
+          $mids = getMidsInCo($alpha1);
+          for($i = 0; $i < count($mids); $i++) {
+            if(!empty($mids[$i])) {
+              $alpha = substr($mids[$i], 0, 6);
+              if($alpha != $alpha1) {
+                $name = substr($mids[$i], 7);
+                echo "<option value=\"$alpha\">$name</option>";
+              }
+            }
+          }
+        ?>
+      </select>
+    </label>
+
+
+  </form>
+
+      	<?php
+          }
+        ?>
+
 </body>
 
 </html>
