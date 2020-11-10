@@ -18,6 +18,9 @@
 
   the getMidsInCo(alpha) function returns all the midshipmen in the same
   company and class year as the specified midshipman's alpha
+
+  the getMidsInCoYr(alpha, year) function return all the midshipman from a
+  specified midshipmans company in a specified class
 */
 
 /*
@@ -277,10 +280,54 @@ function getMidsInCo($alpha)
         //return array
         if($alpha == substr($orig[$c][$y][$num][0], 0, 6))
         {
-          $array = $orig[$c][$p][$y];
           for($i = 1; $i < 50; $i++)
           {
             array_push($mids, substr($orig[$c][$y][$i][0], 0));
+          }
+        }
+      }
+    }
+  }
+  return $mids;
+}
+
+/*
+  based on alpha and year, returns all mids in a class of a mids company 
+*/
+function getMidsInCoYr($alpha, $year)
+{
+  //open serialized array file
+  $serfile = fopen("midinfo.ser", 'r');
+  if(!$serfile)
+  {
+    echo "<p>There was an error reading the serialized array</p>";
+  }
+
+  //get the serialized string out of the file
+  $serialized = fgets($serfile);
+
+  //unserialize the serialized string and get the 3D array
+  $orig = unserialize($serialized);
+  $mids = [];
+  $numyear = (string) $year;
+  echo $numyear;
+
+  //here we loop through all companies, years, and inidividual mids looking
+  //for a match to the given alpha
+  for($c = 1; $c <= 30; $c++)
+  {
+    for($y = getMinYear(); $y <= getMaxYear(); $y++)
+    {
+      for($num = 0; $num < 50; $num++)
+      {
+        //if we find the alpha, add all mids in the same company to the
+        //return array
+        if($alpha == substr($orig[$c][$y][$num][0], 0, 6))
+        {
+          $array = $orig[$c][$numyear];
+          for($i = 0; $i < count($array); $i++)
+          {
+            array_push($mids, substr($array[$i][0], 0));
           }
         }
       }
