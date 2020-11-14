@@ -83,7 +83,7 @@
       <select name="1/C" id="1/C">
         <?php
           $userAlpha = substr($_SESSION["user"], 1, 7);
-          $mids = getMidsInCo(2);
+          $mids = getMidsInCo(1);
           for($i = 0; $i < count($mids); $i++) {
               $alpha = substr($mids[$i], 0, 6);
               if($alpha != $userAlpha) {
@@ -97,7 +97,7 @@
     <select name="2/C" id="2/C">
       <?php
         $userAlpha = substr($_SESSION["user"], 1, 7);
-        $mids = getMidsInCo(3);
+        $mids = getMidsInCo(2);
         for($i = 0; $i < count($mids); $i++) {
             $alpha = substr($mids[$i], 0, 6);
             if($alpha != $userAlpha) {
@@ -111,7 +111,7 @@
     <select name="3/C" id="3/C">
       <?php
         $userAlpha = substr($_SESSION["user"], 1, 7);
-        $mids = getMidsInCo(4);
+        $mids = getMidsInCo(3);
         for($i = 0; $i < count($mids); $i++) {
             $alpha = substr($mids[$i], 0, 6);
             if($alpha != $userAlpha) {
@@ -125,7 +125,7 @@
     <select name="4/C" id="4/C">
       <?php
         $userAlpha = substr($_SESSION["user"], 1, 7);
-        $mids = getMidsInCo(5);
+        $mids = getMidsInCo(4);
         for($i = 0; $i < count($mids); $i++) {
             $alpha = substr($mids[$i], 0, 6);
             if($alpha != $userAlpha) {

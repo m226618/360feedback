@@ -45,7 +45,7 @@
       $_SESSION['last'] = $USER_CREDENTIALS['last'];
       $_SESSION['alpha'] = substr($_SESSION["user"], 1, 7);
       $_SESSION['co'] = getCo($_SESSION['alpha']);
-      $_SESSION['minYear'] = getMinYear();
+      $_SESSION['maxYear'] = getMaxYear();
     }
     echo "<h1> Login successful <br> <p> Redirecting... </p> </h1>";
     header("Location: myAccount.php");

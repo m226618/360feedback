@@ -268,7 +268,7 @@ function getMidsInCo($class)
   $mids = [];
 
   $readAll = false;
-  $y = getMinYear()-1+$class;
+  $y = getMaxYear()-4+$class;
     //add all mids in the specified class to the return array
       for($i = 0; $i < 50 && !$readAll; $i++)
       {
