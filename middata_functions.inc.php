@@ -1,4 +1,5 @@
 <?php
+
 /*
   this file contains functions that can be used to manipulate the
   array database
@@ -16,8 +17,9 @@
   current directory and converts it to a serialized version that is
   used as the database
 
-  the getMidsInCo(alpha) function returns all the midshipmen in the same
-  company and class year as the specified midshipman's alpha
+  the getMidsInCo(class) function returns all the midshipmen in the same
+  company and a specified class year
+
 */
 
 /*
@@ -85,20 +87,22 @@ function getCo($alpha)
 
   //unserialize the serialized string and get the 3D array
   $orig = unserialize($serialized);
-  $co = "";
+
+  $foundUser = false;
 
   //here we loop through all companies, years, and inidividual mids looking
   //for a match to the given alpha
-  for($c = 1; $c <= 30; $c++)
+  for($c = 1; $c <= 30 && !$foundUser; $c++)
   {
-    for($y = getMinYear(); $y <= getMaxYear(); $y++)
+    for($y = getMinYear(); $y <= getMaxYear() && !$foundUser; $y++)
     {
-      for($num = 0; $num < 40; $num++)
+      for($num = 0; $num < 50 && !$foundUser; $num++)
       {
         //if we find the alpha, set co variable to current company index
         if($alpha == substr($orig[$c][$y][$num][0], 0, 6))
         {
           $co = $c;
+          $foundUser = true;
         }
       }
     }
@@ -124,22 +128,20 @@ function addFeedback($alpha, $feedback)
   //unserialize the serialized string and get the 3D array
   $orig = unserialize($serialized);
 
-  //here we loop through all companies, years, and inidividual mids looking
+  //here we loop through all years, and inidividual mids looking
   //for a match to the given alpha
-  for($c = 1; $c <= 30; $c++)
-  {
     for($y = getMinYear(); $y <= getMaxYear(); $y++)
     {
-      for($num = 0; $num < 40; $num++)
+      for($num = 0; $num < 50; $num++)
       {
         //if we find the alpha, append the mid's array with given feedback
-        if($alpha == substr($orig[$c][$y][$num][0], 0, 6))
+        if($alpha == substr($orig[$_SESSION['co']][$y][$num][0], 0, 6))
         {
-          array_push($orig[$c][$y][$num], $feedback);
+          array_push($orig[$_SESSION['co']][$y][$num], $feedback);
         }
       }
     }
-  }
+
   //open serialized array file
   $ser = fopen("midinfo.ser", 'w');
   if(!$ser)
@@ -176,7 +178,7 @@ function getFeedback($alpha)
   {
     for($y = getMinYear(); $y <= getMaxYear(); $y++)
     {
-      for($num = 0; $num < 40; $num++)
+      for($num = 0; $num < 50; $num++)
       {
         //if we find the alpha, grab the mid array and cut off the first
         //index (which contains the mid's name) then set it as the return
@@ -212,7 +214,7 @@ function convTextToSer()
   }
 
   //set up the array that stores all midshipman information
-  $allData = [31][getMaxYear()+1][40][0];
+  $allData = [31][getMaxYear()+1][50][0];
 
   //go through allData array setting proper array indicies for company, year,
   //and then setting a 0-39 number for each mid
@@ -221,7 +223,7 @@ function convTextToSer()
     $company = (int) $allMids[$i][2];
     $year = (int) substr($allMids[$i][0], 0, 2);
     $num = 0;
-    for($j = 0; $j < 40; $j++)
+    for($j = 0; $j < 50; $j++)
     {
       //assign number by looking through array of mids in same year and co
       //until there is a null value
@@ -246,10 +248,10 @@ function convTextToSer()
 }
 
 /*
-  use this function to get an array of the mids that are in a specified
-  midshipman's company and class based on their alpha
+  use this function to get an array of the mids that are in the user's
+  company and specified class
 */
-function getMidsInCo($alpha)
+function getMidsInCo($class)
 {
   //open serialized array file
   $serfile = fopen("midinfo.ser", 'r');
@@ -265,27 +267,17 @@ function getMidsInCo($alpha)
   $orig = unserialize($serialized);
   $mids = [];
 
-  //here we loop through all companies, years, and inidividual mids looking
-  //for a match to the given alpha
-  for($c = 1; $c <= 30; $c++)
-  {
-    for($y = getMinYear(); $y <= getMaxYear(); $y++)
-    {
-      for($num = 0; $num < 40; $num++)
+  $readAll = false;
+  $y = getMaxYear()-4+$class;
+    //add all mids in the specified class to the return array
+      for($i = 0; $i < 50 && !$readAll; $i++)
       {
-        //if we find the alpha, add all mids in the same company to the
-        //return array
-        if($alpha == substr($orig[$c][$y][$num][0], 0, 6))
-        {
-          $array = $orig[$c][$p][$y];
-          for($i = 1; $i < 40; $i++)
-          {
-            array_push($mids, substr($orig[$c][$y][$i][0], 0));
-          }
+        if(!empty($orig[$_SESSION['co']][$y][$i][0])) {
+          array_push($mids, substr($orig[$_SESSION['co']][$y][$i][0], 0));
+        } else {
+          $readAll = true;
         }
       }
-    }
-  }
   return $mids;
 }
 

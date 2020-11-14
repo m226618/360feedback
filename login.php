@@ -23,6 +23,8 @@
     // or when returning from the remote authenticator).
     require_once('lib_auth_usna.php');
 
+    require_once("middata_functions.inc.php");
+
     // If a real login was performed then the users information would now be
     // available in the $USER_CREDENTIALS variable.  The
     // resulting values within $USER_CREDENTIALS should look like:
@@ -41,9 +43,13 @@
       $_SESSION['user'] = $USER_CREDENTIALS['user'];
       $_SESSION['first'] = $USER_CREDENTIALS['first'];
       $_SESSION['last'] = $USER_CREDENTIALS['last'];
+      $_SESSION['alpha'] = substr($_SESSION["user"], 1, 7);
+      $_SESSION['co'] = getCo($_SESSION['alpha']);
+      $_SESSION['maxYear'] = getMaxYear();
     }
     echo "<h1> Login successful <br> <p> Redirecting... </p> </h1>";
     header("Location: myAccount.php");
+
 
     // You will need to create some mechanism within your scripts that stores
     // the information regarding a successful log in, I suggest using sessions.
