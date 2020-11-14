@@ -33,12 +33,12 @@
   $trend = $_POST['trend'];
   $trendReason = $_POST['trendReason'];
 
-  $vars = [$a1, $a2, $b1, $b2, $b3, $c1, $c2, $d1, $d2, $strengths, $areasOfImp, $ways, $trend, $trendReason];
+  $vars = [$fam, $a1, $a2, $b1, $b2, $b3, $c1, $c2, $d1, $d2, $strengths, $areasOfImp, $ways, $trend, $trendReason];
   $emptyVar = false;
-  for($i=0; $i<14 && !$emptyVar; $i++) {
+  for($i=0; $i<15 && !$emptyVar; $i++) {
     if(empty($vars[$i])) {
       $emptyVar = true;
-      echo $i;
+      //echo $i; testing - which input was incomplete
     }
   }
 
@@ -46,14 +46,16 @@
   if($emptyVar || count($traits) == 0 ) {
     echo "<p>Incomplete</p>";
   } else {
+    //when everything is validated correctly, write all the feedback and embedded HTML to $feedback string, then
+    //write $feedback to reviewee's array
+
     echo "<p> Your feedback has been submitted! </p>";
 
     $feedback = "";
     //addFeedback($_SESSION['alpha'], $feedback);
   }
 
-  //when everything is vaildated correctly
-  //write to file
+
 
   ?>
 
