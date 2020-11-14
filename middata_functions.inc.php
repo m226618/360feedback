@@ -282,7 +282,9 @@ function getMidsInCo($alpha)
         {
           for($i = 1; $i < 50; $i++)
           {
-            array_push($mids, substr($orig[$c][$y][$i][0], 0));
+            if(!empty($orig[$c][$y][$i][0])) {
+              array_push($mids, substr($orig[$c][$y][$i][0], 0));
+            }
           }
         }
       }
@@ -292,7 +294,7 @@ function getMidsInCo($alpha)
 }
 
 /*
-  based on alpha and year, returns all mids in a class of a mids company 
+  based on alpha and year, returns all mids in a class of a mids company
 */
 function getMidsInCoYr($alpha, $year)
 {
