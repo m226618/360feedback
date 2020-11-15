@@ -272,10 +272,6 @@
       </fieldset>
     </div>\n";
 
-    //testing purposes
-    //echo "<p>this is what the feedback looks like:</p>";
-    //echo $feedback;
-
     addFeedback($revieweeAlpha, $feedback);
   }
 
