@@ -34,13 +34,12 @@
       var classNames = [document.getElementById("1/C"), document.getElementById("2/C"), document.getElementById("3/C"),
                         document.getElementById("4/C")];
       var selClass = document.getElementById("class").value;
-      classNames[selClass-1].style.display = "inline";
+      classNames[selClass].style.display = "inline";
       for(var i=0; i<4; i++) {
-        if(i != selClass-1)
+        if(i != selClass)
           classNames[i].style.display = "none";
       }
     }
-
 
   </script>
 </head>
@@ -69,10 +68,10 @@
 
     <label> Select the Class of the Mid you want to provide feedback for:
       <select name="classNum" id="class" onchange="selectClass()">
-        <option value="1">1/C</option>
-        <option value="2">2/C</option>
-        <option value="3">3/C</option>
-        <option value="4">4/C</option>
+        <option value=0>1/C</option>
+        <option value=1>2/C</option>
+        <option value=2>3/C</option>
+        <option value=3>4/C</option>
       </select>
     </label>
 
@@ -161,130 +160,129 @@
 
     <table>
       <tr>
-        <th colspan="5"> A. Leadership. Demonstrated ability to effectively lead and develop subordinates by establishing and achieving goals that support the mission,
+        <th colspan=5> A. Leadership. Demonstrated ability to effectively lead and develop subordinates by establishing and achieving goals that support the mission,
           providing clear and timely communication, and setting a positive example for others to follow.
         </th>
       </tr>
       <tr>
-        <td colspan="5"><b>1. Leading Subordinates.</b> Applies leadership principles to provide direction, motivate and influence subordinates to accomplish assigned tasks.
+        <td colspan=5><b>1. Leading Subordinates.</b> Applies leadership principles to provide direction, motivate and influence subordinates to accomplish assigned tasks.
           Ensures effective communication, both in receiving and conveying information. Sustains morale while maximizing subordinates' performance.
         </td>
       </tr>
       <tr>
-        <td class="scale"><label><input type="radio" name="a1" value="1">1 Below Standard</label></td>
-        <td class="scale"><label><input type="radio" name="a1" value="2">2</label></td>
-        <td class="scale"><label><input type="radio" name="a1" value="3">3 Meets Standard</label></td>
-        <td class="scale"><label><input type="radio" name="a1" value="4">4</label></td>
-        <td class="scale"><label><input type="radio" name="a1" value="5">5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=a1 value=0>1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=a1 value=1>2</label></td>
+        <td class=scale><label><input type=radio name=a1 value=2>3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=a1 value=3>4</label></td>
+        <td class=scale><label><input type=radio name=a1 value=4>5 Exceeds Standard</label></td>
       </tr>
       <tr>
-        <td colspan="5"><b>2. Developing Subordinates.</b> Commitment to train, educate and challenge subordinates, cultivating personal and professional development
+        <td colspan=5><b>2. Developing Subordinates.</b> Commitment to train, educate and challenge subordinates, cultivating personal and professional development
           and esprit de corps. Sets a positive example for others to follow.
         </td>
       </tr>
       <tr>
-        <td class="scale"><label><input type="radio" name="a2" value="1">1 Below Standard</label></td>
-        <td class="scale"><label><input type="radio" name="a2" value="2">2</label></td>
-        <td class="scale"><label><input type="radio" name="a2" value="3">3 Meets Standard</label></td>
-        <td class="scale"><label><input type="radio" name="a2" value="4">4</label></td>
-        <td class="scale"><label><input type="radio" name="a2" value="5">5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=a2 value=0>1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=a2 value=1>2</label></td>
+        <td class=scale><label><input type=radio name=a2 value=2>3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=a2 value=3>4</label></td>
+        <td class=scale><label><input type=radio name=a2 value=4>5 Exceeds Standard</label></td>
       </tr>
       <tr>
-        <th colspan="5">B. Character. Behavior and actions consistent with Navy and Marine Corps core values of honor, courage, and commitment.</th>
+        <th colspan=5>B. Character. Behavior and actions consistent with Navy and Marine Corps core values of honor, courage, and commitment.</th>
       </tr>
       <tr>
-        <td colspan="5"><b>1. Honor.</b> Being truthful and forthright in all personal and professional matters and remaining fully accountable for
+        <td colspan=5><b>1. Honor.</b> Being truthful and forthright in all personal and professional matters and remaining fully accountable for
           decisions and actions. Demonstrating integrity by the consistent alignment of one's actions with the values, standards, and expectations of USNA.</td>
       </tr>
       <tr>
-        <td class="scale"><label><input type="radio" name="b1" value="1">1 Below Standard</label></td>
-        <td class="scale"><label><input type="radio" name="b1" value="2">2</label></td>
-        <td class="scale"><label><input type="radio" name="b1" value="3">3 Meets Standard</label></td>
-        <td class="scale"><label><input type="radio" name="b1" value="4">4</label></td>
-        <td class="scale"><label><input type="radio" name="b1" value="5">5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=b1 value=0>1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=b1 value=1>2</label></td>
+        <td class=scale><label><input type=radio name=b1 value=2>3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=b1 value=3>4</label></td>
+        <td class=scale><label><input type=radio name=b1 value=4>5 Exceeds Standard</label></td>
       </tr>
       <tr>
-        <td colspan="5"><b>2. Courage.</b> Possessing the moral, mental and physical strength to overcome challenges, demonstrate the highest standards
+        <td colspan=5><b>2. Courage.</b> Possessing the moral, mental and physical strength to overcome challenges, demonstrate the highest standards
           of personal conduct, and make tough decisions under stress regardless of personal consequences.</td>
       </tr>
       <tr>
-        <td class="scale"><label><input type="radio" name="b2" value="1">1 Below Standard</label></td>
-        <td class="scale"><label><input type="radio" name="b2" value="2">2</label></td>
-        <td class="scale"><label><input type="radio" name="b2" value="3">3 Meets Standard</label></td>
-        <td class="scale"><label><input type="radio" name="b2" value="4">4</label></td>
-        <td class="scale"><label><input type="radio" name="b2" value="5">5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=b2 value=0>1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=b2 value=1>2</label></td>
+        <td class=scale><label><input type=radio name=b2 value=2>3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=b2 value=3>4</label></td>
+        <td class=scale><label><input type=radio name=b2 value=4>5 Exceeds Standard</label></td>
       </tr>
       <tr>
-        <td colspan="5"><b>3. Commitment.</b> Doing one's duty in all things at all times with fidelity. Selflessly devoting oneself to our institution and heritage.
+        <td colspan=5><b>3. Commitment.</b> Doing one's duty in all things at all times with fidelity. Selflessly devoting oneself to our institution and heritage.
           Aspiring to achieve excellence without arrogance.</td>
       </tr>
       <tr>
-        <td class="scale"><label><input type="radio" name="b3" value="1">1 Below Standard</label></td>
-        <td class="scale"><label><input type="radio" name="b3" value="2">2</label></td>
-        <td class="scale"><label><input type="radio" name="b3" value="3">3 Meets Standard</label></td>
-        <td class="scale"><label><input type="radio" name="b3" value="4">4</label></td>
-        <td class="scale"><label><input type="radio" name="b3" value="5">5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=b3 value=0>1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=b3 value=1>2</label></td>
+        <td class=scale><label><input type=radio name=b3 value=2>3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=b3 value=3>4</label></td>
+        <td class=scale><label><input type=radio name=b3 value=4>5 Exceeds Standard</label></td>
       </tr>
       <tr>
-        <th colspan="5">C. Professionalism. Demonstrated initiative and competence to consistently produce quality results. Dedicated to the profession
-          of arms, the traditions and customs of the naval Service and the constitutional foundation of the US.</th>
+        <th colspan=5>C. Professionalism. Demonstrated initiative and competence to consistently produce quality results. Dedicated to the profession
+          of arms, the traditions and customs of the Naval Service and the constitutional foundation of the US.</th>
       </tr>
       <tr>
-        <td colspan="5"><b>1. Profession of Arms.</b> Commitment to intellectual and professional growth. Increases the breadth and depth of
+        <td colspan=5><b>1. Profession of Arms.</b> Commitment to intellectual and professional growth. Increases the breadth and depth of
           warfighting and leadership aptitude. Integrates naval traditions and customs into daily practices and leadership decisions.</td>
       </tr>
       <tr>
-        <td class="scale"><label><input type="radio" name="c1" value="1">1 Below Standard</label></td>
-        <td class="scale"><label><input type="radio" name="c1" value="2">2</label></td>
-        <td class="scale"><label><input type="radio" name="c1" value="3">3 Meets Standard</label></td>
-        <td class="scale"><label><input type="radio" name="c1" value="4">4</label></td>
-        <td class="scale"><label><input type="radio" name="c1" value="5">5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=c1 value=0>1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=c1 value=1>2</label></td>
+        <td class=scale><label><input type=radio name=c1 value=2>3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=c1 value=3>4</label></td>
+        <td class=scale><label><input type=radio name=c1 value=4>5 Exceeds Standard</label></td>
       </tr>
       <tr>
-        <td colspan="5"><b>2. Competence.</b> The ability to complete tasks effectively and efficiently. Demonstrates a sufficiency of knowledge
+        <td colspan=5><b>2. Competence.</b> The ability to complete tasks effectively and efficiently. Demonstrates a sufficiency of knowledge
           that enables one to act in a variety of situations.</td>
       </tr>
       <tr>
-        <td class="scale"><label><input type="radio" name="c2" value="1">1 Below Standard</label></td>
-        <td class="scale"><label><input type="radio" name="c2" value="2">2</label></td>
-        <td class="scale"><label><input type="radio" name="c2" value="3">3 Meets Standard</label></td>
-        <td class="scale"><label><input type="radio" name="c2" value="4">4</label></td>
-        <td class="scale"><label><input type="radio" name="c2" value="5">5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=c2 value=0>1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=c2 value=1>2</label></td>
+        <td class=scale><label><input type=radio name=c2 value=2>3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=c2 value=3>4</label></td>
+        <td class=scale><label><input type=radio name=c2 value=4>5 Exceeds Standard</label></td>
       </tr>
       <tr>
-        <th colspan="5">D. Team Driven. Values diversity of thought and contributes to team building and team results over personal achievement.</th>
+        <th colspan=5>D. Team Driven. Values diversity of thought and contributes to team building and team results over personal achievement.</th>
       </tr>
       <tr>
-        <td colspan="5"><b>1. Values Diversity of Thought</b></td>
+        <td colspan=5><b>1. Values Diversity of Thought</b></td>
       </tr>
       <tr>
-        <td class="scale"><label><input type="radio" name="d1" value="1">1 Below Standard</label></td>
-        <td class="scale"><label><input type="radio" name="d1" value="2">2</label></td>
-        <td class="scale"><label><input type="radio" name="d1" value="3">3 Meets Standard</label></td>
-        <td class="scale"><label><input type="radio" name="d1" value="4">4</label></td>
-        <td class="scale"><label><input type="radio" name="d1" value="5">5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=d1 value=0>1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=d1 value=1>2</label></td>
+        <td class=scale><label><input type=radio name=d1 value=2>3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=d1 value=3>4</label></td>
+        <td class=scale><label><input type=radio name=d1 value=4>5 Exceeds Standard</label></td>
       </tr>
       <tr>
-        <td colspan="5"><b>2. Contributes to Team Building and Team Results over Personal Achievement</b></td>
+        <td colspan=5><b>2. Contributes to Team Building and Team Results over Personal Achievement</b></td>
       </tr>
       <tr>
-        <td class="scale"><label><input type="radio" name="d2" value="1">1 Below Standard</label></td>
-        <td class="scale"><label><input type="radio" name="d2" value="2">2</label></td>
-        <td class="scale"><label><input type="radio" name="d2" value="3">3 Meets Standard</label></td>
-        <td class="scale"><label><input type="radio" name="d2" value="4">4</label></td>
-        <td class="scale"><label><input type="radio" name="d2" value="5">5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=d2 value=0>1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=d2 value=1>2</label></td>
+        <td class=scale><label><input type=radio name=d2 value=2>3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=d2 value=3>4</label></td>
+        <td class=scale><label><input type=radio name=d2 value=4>5 Exceeds Standard</label></td>
       </tr>
-
     </table>
 
 <br><br>
 
-<p>What areas are you providing feedback? Select all that apply.</p>
-  <label><input type="checkbox" name="cat[]" value="Leadership">Leadership</label><br>
-  <label><input type="checkbox" name="cat[]" value="Character">Character</label><br>
-  <label><input type="checkbox" name="cat[]" value="Professionalism">Professionalism</label><br>
-  <label><input type="checkbox" name="cat[]" value="Team Driven">Team Driven</label><br>
-  <label><input type="checkbox" name="cat[]" value="Judgment and Tact">Judgment and Tact</label><br>
+<p>In what areas are you providing feedback? Select all that apply.</p>
+  <label><input type="checkbox" name="cat[]" value="0">Leadership</label><br>
+  <label><input type="checkbox" name="cat[]" value="1">Character</label><br>
+  <label><input type="checkbox" name="cat[]" value="2">Professionalism</label><br>
+  <label><input type="checkbox" name="cat[]" value="3">Team Driven</label><br>
+  <label><input type="checkbox" name="cat[]" value="4">Judgment and Tact</label><br>
 
 
 <br><br>
@@ -310,11 +308,11 @@
 <br><br>
 
 <p>What is the trend of their overall performance?</p>
-  <label><input type="radio" name="trend" value="5">Maintaining Exemplary Performance</label><br>
-  <label><input type="radio" name="trend" value="4">Maintaining Good Performance</label><br>
-  <label><input type="radio" name="trend" value="3">Improving Performance</label><br>
-  <label><input type="radio" name="trend" value="2">Declining Performance</label><br>
-  <label><input type="radio" name="trend" value="1">Maintaining Poor Performance</label><br>
+  <label><input type="radio" name="trend" value="0">Maintaining Exemplary Performance</label><br>
+  <label><input type="radio" name="trend" value="1">Maintaining Good Performance</label><br>
+  <label><input type="radio" name="trend" value="2">Improving Performance</label><br>
+  <label><input type="radio" name="trend" value="3">Declining Performance</label><br>
+  <label><input type="radio" name="trend" value="4">Maintaining Poor Performance</label>
 
 <br><br>
 

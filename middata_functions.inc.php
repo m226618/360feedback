@@ -128,19 +128,24 @@ function addFeedback($alpha, $feedback)
   //unserialize the serialized string and get the 3D array
   $orig = unserialize($serialized);
 
-  //here we loop through all years, and inidividual mids looking
+  //when feedback is added (alpha was found), use this variable to end the search
+  $added = false;
+
+  //here we loop through all years, and individual mids looking
   //for a match to the given alpha
-    for($y = getMinYear(); $y <= getMaxYear(); $y++)
+    for($y = getMinYear(); $y <= getMaxYear() && !$added; $y++)
     {
-      for($num = 0; $num < 50; $num++)
+      for($num = 0; $num < 50 && !$added; $num++)
       {
-        //if we find the alpha, append the mid's array with given feedback
+        //if we find the alpha, append the given feedback to the mid's array
         if($alpha == substr($orig[$_SESSION['co']][$y][$num][0], 0, 6))
         {
           array_push($orig[$_SESSION['co']][$y][$num], $feedback);
+          $added = true;
         }
       }
     }
+
 
   //open serialized array file
   $ser = fopen("midinfo.ser", 'w');
@@ -151,6 +156,10 @@ function addFeedback($alpha, $feedback)
 
   //write the serialized array to the file
   fwrite($ser, serialize($orig));
+
+  //just for testing, since I don't have permission to write to the file right now
+  serialize($orig);
+  //echo serialize($orig);
 }
 
 /*
@@ -172,7 +181,7 @@ function getFeedback($alpha)
   $orig = unserialize($serialized);
   $feedback = [];
 
-  //here we loop through all companies, years, and inidividual mids looking
+  //here we loop through all companies, years, and individual mids looking
   //for a match to the given alpha
   for($c = 1; $c <= 30; $c++)
   {
