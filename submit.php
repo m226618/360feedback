@@ -71,7 +71,6 @@
   for($i=0; $i<15 && !$emptyVar; $i++) {
     if($vars[$i] == NULL) {
       $emptyVar = true;
-      echo $i; //testing - which input was incomplete
     }
   }
 
@@ -104,7 +103,7 @@
     echo "<p> Your feedback has been submitted! </p> ";
 
 
-    $feedback = "$name
+    $feedback = "
     <div id=\"$name\">
       <fieldset>
         <legend>Feedback submitted by: $name</legend>
@@ -271,11 +270,11 @@
 
 
       </fieldset>
-    </div>";
+    </div>\n";
 
     //testing purposes
-    echo "<p>this is what the feedback looks like:</p>";
-    echo $feedback;
+    //echo "<p>this is what the feedback looks like:</p>";
+    //echo $feedback;
 
     addFeedback($revieweeAlpha, $feedback);
   }
