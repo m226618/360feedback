@@ -23,12 +23,8 @@
 
 <table>
 <?php
-  $feedback = getFeedback(substr($_SESSION['user'], 1));
-  for($i = 0; $i < count($feedback); $i++)
-  {
-    $cur = $feedback[$i];
-    echo "<tr><td>$cur</td></tr>";
-  }
+  $feedback = getFeedback($_SESSION['alpha']);
+  echo $feedback;
 ?>
 </table>
  <a href="myAccount.php"> Go back to my account </a> <br>
