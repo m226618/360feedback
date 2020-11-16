@@ -16,17 +16,40 @@
 <head>
   <meta charset="utf-8" />
   <title>View Feedback</title>
+  <style>
+    table, td, th {
+      border: 1px solid black;
+    }
+
+    table {
+      width: 1000px;
+    }
+
+    .scale {
+      width: 200px;
+    }
+
+    .openResponse {
+      width: 500px;
+      height: 50px;
+    }
+  </style>
+
+  <script>
+
+  </script>
+
   <h1>Your Feedback</h1>
 </head>
 
 <body>
 
-<table>
 <?php
   $feedback = getFeedback($_SESSION['alpha']);
-  echo $feedback;
+  echo strstr($feedback, '<div');
 ?>
-</table>
+
+  <br>
  <a href="myAccount.php"> Go back to my account </a> <br>
  <a href="logout.php"> Logout </a>
 
