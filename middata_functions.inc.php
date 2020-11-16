@@ -140,6 +140,7 @@ function addFeedback($alpha, $feedback)
       //if we find the alpha, append the given feedback to the mid's array
       if($alpha == substr($orig[$_SESSION['co']][$y][$num][0], 0, 6))
       {
+        $feedback = trim(preg_replace('/\s+/', ' ', $feedback));
         $orig[$_SESSION['co']][$y][$num][0] .= $feedback;
         $added = true;
       }
@@ -273,7 +274,8 @@ function getMidsInCo($class)
     for($i = 0; $i < 50; $i++)
     {
       if(!empty($orig[$_SESSION['co']][$y][$i][0])) {
-        array_push($mids, substr($orig[$_SESSION['co']][$y][$i][0], 0));
+        $name = substr($orig[$_SESSION['co']][$y][$i][0], 0, strpos($orig[$_SESSION['co']][$y][$i][0], '*'));
+        array_push($mids, substr($name, 0));
       }
     }
 
