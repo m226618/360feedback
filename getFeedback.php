@@ -37,12 +37,51 @@
 
   <script>
 
+  function createSelector() {
+    var feedbackDivs = document.getElementsByClassName("feedback");
+    var selector = document.createElement("select");
+    selector.id = 'selector';
+    selector.onChange = "viewFeedback()";
+    var divIDs = [];
+
+    for (var i=0; i<feedbackDivs.length; i++) {
+      divIDs.push(feedbackDivs[i].id);
+    }
+    for(var i=0; i<divIDs.length; i++) {
+        var name = document.createElement("option");
+        name.value = divIDs[i];
+        name.text = divIDs[i];
+        selector.appendChild(name);
+    }
+
+    var top = document.getElementById("top");
+    top.appendChild(selector);
+
+  }
+
+    function viewFeedback() {
+      var feedbackDivs = document.getElementsByClassName("feedback");
+      var selector = document.getElementById("selector");
+      for(var i=0; i<feedbackDivs.length; i++) {
+        if(selector.value.localeCompare(feedbackDivs[i].id) == 0)
+          feedbackDivs[i] = "block";
+        else
+          feedbackDivs[i].style.display = "none";
+      }
+    }
+
   </script>
 
   <h1>Your Feedback</h1>
 </head>
 
 <body>
+
+  <label id="top">
+    View feedback from the following Mid:
+  </label>
+
+  <br><br>
 
 <?php
   $feedback = getFeedback($_SESSION['alpha']);
@@ -52,6 +91,11 @@
   <br>
  <a href="myAccount.php"> Go back to my account </a> <br>
  <a href="logout.php"> Logout </a>
+
+ <script>
+   createSelector();
+   viewFeedback();
+ </script>
 
 </body>
 
