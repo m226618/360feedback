@@ -37,6 +37,14 @@
 
   <script>
 
+  function feedbackStatus() {
+    var top = document.getElementById("top");
+    var feedbackDivs = document.getElementsByClassName("feedback");
+    if(feedbackDivs.length == 0)
+    top.innerHTML = "Feedback hasn't been submitted for you yet!";
+    return false;
+  }
+
   function createSelector() {
     var feedbackDivs = document.getElementsByClassName("feedback");
     var selector = document.createElement("select");
@@ -93,8 +101,11 @@
  <a href="logout.php"> Logout </a>
 
  <script>
-   createSelector();
-   viewFeedback();
+   if(feedbackStatus()) {
+     createSelector();
+     viewFeedback();
+   }
+
  </script>
 
 </body>
