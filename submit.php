@@ -104,7 +104,7 @@
 
 
     $feedback = "
-    <div id=\"$name\">
+    <div id=\"$name\" class=\"feedback\">
       <fieldset>
         <legend>Feedback submitted by: $name</legend>
         <p>This person is my: $rel</p>\n
@@ -270,7 +270,7 @@
 
 
       </fieldset>
-    </div>";
+    </div><br>";
 
     addFeedback($revieweeAlpha, $feedback);
   }
@@ -278,7 +278,7 @@
 
 
   ?>
-  
+
   <br>
  <a href="myAccount.php"> Go back to my account </a> <br>
  <a href="logout.php"> Logout </a>
