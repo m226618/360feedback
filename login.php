@@ -46,7 +46,7 @@
       $_SESSION['alpha'] = substr($_SESSION["user"], 1, 7);
       $_SESSION['co'] = getCo($_SESSION['alpha']);
       $_SESSION['maxYear'] = getMaxYear();
-      $fp = fopen("whitelist.txt");
+      $fp = fopen("whitelist.txt", 'r');
       if($fopen)
       {
         echo "There was an error opening the whitelist file";
@@ -57,7 +57,7 @@
         while( !feof($fp) )
         {
           $len = strlen($_SESSION['user']);
-          if(substr($line, 0, $len))
+          if(substr($line, 0, $len) == $_SESSION['user'])
           {
             echo substr($line, 0, $len);
             $_SESSION['admin'] = "true";
