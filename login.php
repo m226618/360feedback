@@ -46,6 +46,27 @@
       $_SESSION['alpha'] = substr($_SESSION["user"], 1, 7);
       $_SESSION['co'] = getCo($_SESSION['alpha']);
       $_SESSION['maxYear'] = getMaxYear();
+      $fp = fopen("whitelist.txt");
+      if($fopen)
+      {
+        echo "There was an error opening the whitelist file";
+      }
+      else
+      {
+        $line = fgets($fp);
+        while( !feof($fp) )
+        {
+          $len = strlen($_SESSION['user']);
+          if(substr($line, 0, $len))
+          {
+            echo substr($line, 0, $len);
+            $_SESSION['admin'] = "true";
+            break;
+          }
+          $line = fgets($fp);
+        }
+      }
+
     }
     echo "<h1> Login successful <br> <p> Redirecting... </p> </h1>";
     header("Location: myAccount.php");

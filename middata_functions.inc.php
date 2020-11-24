@@ -128,19 +128,24 @@ function addFeedback($alpha, $feedback)
   //unserialize the serialized string and get the 3D array
   $orig = unserialize($serialized);
 
-  //here we loop through all years, and inidividual mids looking
+  //when feedback is added (alpha was found), use this variable to end the search
+  $added = false;
+
+  //here we loop through all years, and individual mids looking
   //for a match to the given alpha
-    for($y = getMinYear(); $y <= getMaxYear(); $y++)
+  for($y = getMinYear(); $y <= getMaxYear() && !$added; $y++)
+  {
+    for($num = 0; $num < 50 && !$added; $num++)
     {
-      for($num = 0; $num < 50; $num++)
+      //if we find the alpha, append the given feedback to the mid's array
+      if($alpha == substr($orig[$_SESSION['co']][$y][$num][0], 0, 6))
       {
-        //if we find the alpha, append the mid's array with given feedback
-        if($alpha == substr($orig[$_SESSION['co']][$y][$num][0], 0, 6))
-        {
-          array_push($orig[$_SESSION['co']][$y][$num], $feedback);
-        }
+        $feedback = trim(preg_replace('/\s+/', ' ', $feedback));
+        $orig[$_SESSION['co']][$y][$num][0] .= $feedback;
+        $added = true;
       }
     }
+  }
 
   //open serialized array file
   $ser = fopen("midinfo.ser", 'w');
@@ -151,6 +156,7 @@ function addFeedback($alpha, $feedback)
 
   //write the serialized array to the file
   fwrite($ser, serialize($orig));
+
 }
 
 /*
@@ -170,25 +176,21 @@ function getFeedback($alpha)
 
   //unserialize the serialized string and get the 3D array
   $orig = unserialize($serialized);
-  $feedback = [];
+  $feedback = "";
 
-  //here we loop through all companies, years, and inidividual mids looking
+  //here we loop through all individual mids in user's company and year, looking
   //for a match to the given alpha
-  for($c = 1; $c <= 30; $c++)
+
+  $y = substr($_SESSION['alpha'], 0, 2);
+  for($num = 0; $num < 50; $num++)
   {
-    for($y = getMinYear(); $y <= getMaxYear(); $y++)
+    //if we find the alpha, get the long string
+    if($alpha == substr($orig[$_SESSION['co']][$y][$num][0], 0, 6))
     {
-      for($num = 0; $num < 50; $num++)
-      {
-        //if we find the alpha, grab the mid array and cut off the first
-        //index (which contains the mid's name) then set it as the return
-        if($alpha == substr($orig[$c][$y][$num][0], 0, 6))
-        {
-          $feedback = array_slice($orig[$c][$y][$num], 1);
-        }
-      }
+      $feedback = $orig[$_SESSION['co']][$y][$num][0];
     }
   }
+
   return $feedback;
 }
 
@@ -234,7 +236,7 @@ function convTextToSer()
     }
 
     //set the actual data for every index here
-    $allData[$company][$year][$num][0] = $allMids[$i][0] . " " . $allMids[$i][1];
+    $allData[$company][$year][$num][0] = $allMids[$i][0] . " " . $allMids[$i][1] . "*";
   }
   //opening serialized array file
   $ser = fopen("midinfo.ser", 'w');
@@ -253,6 +255,7 @@ function convTextToSer()
 */
 function getMidsInCo($class)
 {
+
   //open serialized array file
   $serfile = fopen("midinfo.ser", 'r');
   if(!$serfile)
@@ -266,18 +269,16 @@ function getMidsInCo($class)
   //unserialize the serialized string and get the 3D array
   $orig = unserialize($serialized);
   $mids = [];
-
-  $readAll = false;
   $y = getMaxYear()-4+$class;
     //add all mids in the specified class to the return array
-      for($i = 0; $i < 50 && !$readAll; $i++)
-      {
-        if(!empty($orig[$_SESSION['co']][$y][$i][0])) {
-          array_push($mids, substr($orig[$_SESSION['co']][$y][$i][0], 0));
-        } else {
-          $readAll = true;
-        }
+    for($i = 0; $i < 50; $i++)
+    {
+      if(!empty($orig[$_SESSION['co']][$y][$i][0])) {
+        $name = substr($orig[$_SESSION['co']][$y][$i][0], 0, strpos($orig[$_SESSION['co']][$y][$i][0], '*'));
+        array_push($mids, substr($name, 0));
       }
+    }
+
   return $mids;
 }
 

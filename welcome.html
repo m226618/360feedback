@@ -7,9 +7,36 @@
 <head>
   <meta charset="utf-8" />
   <title>Welcome Page</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
+
+  <div class="navbar">
+    <div class="dropdown">
+      <button class="dropbtn"><a href="myAccount.php">My Account</a>
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="login.php">Login</a>
+        <a href="logout.php">Logout</a>
+      </div>
+    </div>
+    <a href="getFeedback.php">View Feedback</a>
+    <a href="submitFeedback.php">Submit Feedback</a>
+  </div>
+
+  <!--<nav>
+      <ul>
+        <li><a href="myAccount.php">My Account</a></li>
+          <div> <!- class="dropdown-menu" aria-labelledby="navbarDropdown" -
+            <a href="login.php">Login</a> <!- class="dropdown-item" href="#" -
+            <a href="logout.php">Logout</a> <!- class="dropdown-item" href="#" -
+          </div>
+        <li><a href="getFeedback.php">View Feedback</a></li>
+        <li><a href="submitFeedback.php">Submit Feedback</a></li>
+      </ul>
+    </nav>-->
 
   <h1>360 Feedback</h1>
 
@@ -19,7 +46,7 @@
 
   <p><a href="adminSignup.html">Create an Admin account</a></p>
 
-  <footer><a href="aboutUs.html">Learn more about the developers</a></footer>
+  <footer><a href="contactUs.html">Learn more about the developers</a></footer>
 
 
 </body>
