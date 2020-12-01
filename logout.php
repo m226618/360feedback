@@ -27,12 +27,6 @@
   else
   {
     unset($_SESSION["user"]);
-    unset($_SESSION['first']);
-    unset($_SESSION['last']);
-    unset($_SESSION['alpha']);
-    unset($_SESSION['co']);
-    unset($_SESSION['maxYear']);
-    unset($_SESSION['admin']);
     echo "<h2>You are now logged out</h2>";
     header("Location: welcome.html");
   }
