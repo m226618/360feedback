@@ -1,5 +1,7 @@
 <?php
   session_start();
+  if(empty($_SESSION["user"]) && !isset($_SESSION["user"]))
+  header("Location: welcome.html");
  ?>
 <!DOCTYPE html>
 
@@ -8,7 +10,9 @@
 <head>
   <meta charset="utf-8" />
   <title>Submit Feedback</title>
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <style>
     table, td, th {
       border: 1px solid black;
@@ -44,28 +48,20 @@
   </script>
 </head>
 
-<body>
+<body class="text-dark text-center">
+<div class="jumbotron text-center display-4">360 Feedback - Submit Feedback</div> 
 
   <!--explanation / tips for writing good feedback
 
 	  //feedback form (action="submit.php")-->
 
-    <?php
-    require_once("middata_functions.inc.php");
-
-    if(empty($_SESSION["user"]) && !isset($_SESSION["user"]))
-      {
-          echo "<h2>You are not logged in</h2><p>Go to the login page <a href='login.php'>here</a></p>";
-      }
-        else
-          {
-            echo "<a href=\"myAccount.php\"> My Account </a> <br>
-
-    <a href=\"logout.php\"> Logout </a>";
-    ?>
-
+  <?php require_once("middata_functions.inc.php"); ?>
+  <div class="container">
+  <div class="jumbotron">
+  <div class="row">
+  
   <form method="post" action="submit.php">
-
+    <div class="col">
     <label> Select the Class of the Mid you want to provide feedback for:
       <select name="classNum" id="class" onchange="selectClass()">
         <option value=0>1/C</option>
@@ -74,10 +70,10 @@
         <option value=3>4/C</option>
       </select>
     </label>
+    </div>
+    <br>
 
-    <br><br>
-
-
+    <div class="col">
     <label> Select a Mid to provide feedback for:
       <select name="1/C" id="1/C">
         <?php
@@ -135,9 +131,9 @@
       ?>
     </select>
     </label>
-
-    <br><br>
-
+    </div>
+    <br>
+    <div class="col">
     <label>This person is my:
     <select name="relationship">
       <option>Plebe</option>
@@ -149,15 +145,15 @@
       <option>Peer</option>
     </select>
     </label>
-
-    <br><br>
-
+    </div>
+    <br>
+    <div class="col">
     <label>On a scale of 1-5, how well do you know this person?
       <input type="number" name="familiarity" min="1" max="5">
     </label>
-
+    </div>
     <br><br>
-
+    <div class="col">
     <table>
       <tr>
         <th colspan=5> A. Leadership. Demonstrated ability to effectively lead and develop subordinates by establishing and achieving goals that support the mission,
@@ -274,69 +270,68 @@
         <td class=scale><label><input type=radio name=d2 value=4>5 Exceeds Standard</label></td>
       </tr>
     </table>
+    </div>
+  <br><br>
+  <div class="col">
+  <p>In what areas are you providing feedback? Select all that apply.</p>
+    <label><input type="checkbox" name="cat[]" value="0">Leadership</label><br>
+    <label><input type="checkbox" name="cat[]" value="1">Character</label><br>
+    <label><input type="checkbox" name="cat[]" value="2">Professionalism</label><br>
+    <label><input type="checkbox" name="cat[]" value="3">Team Driven</label><br>
+    <label><input type="checkbox" name="cat[]" value="4">Judgment and Tact</label><br>
+  </div>
 
-<br><br>
+  <br><br>
+  <div class="col">
+  <label><p>What are their strengths? Please elaborate and include relevant examples. If you gave a score higher than a
+    3 in any of the categories listed above, give your reasons here.</p>
+    <textarea name="strengths" class="openResponse"></textarea>
+  </label>
+  </div>
+  <br><br>
+  <div class="col">
+  <label><p>What are their areas of improvement? Please elaborate and include relevant examples. If you gave a score lower than a
+    3 in any of the categories listed above, give your reasons here.</p>
+    <textarea name="areasOfI" class="openResponse"></textarea>
+  </label>
+  </div>
+  <br><br>
+  <div class="col">
+  <label><p>What can they do to improve in these areas?</p>
+    <textarea name="waysImprove" class="openResponse"></textarea>
+  </label>
+  </div>
+  <br><br>
+  <div class="col">
+  <p>What is the trend of their overall performance?</p>
+    <label><input type="radio" name="trend" value="0">Maintaining Exemplary Performance</label><br>
+    <label><input type="radio" name="trend" value="1">Maintaining Good Performance</label><br>
+    <label><input type="radio" name="trend" value="2">Improving Performance</label><br>
+    <label><input type="radio" name="trend" value="3">Declining Performance</label><br>
+    <label><input type="radio" name="trend" value="4">Maintaining Poor Performance</label>
+  </div>
+  <br><br>
+  <div class="col">
+  <label><p>How have you observed this trend?</p>
+    <textarea name="trendReason" class="openResponse"></textarea>
+  </label>
+  </div>
+  <br><br>
 
-<p>In what areas are you providing feedback? Select all that apply.</p>
-  <label><input type="checkbox" name="cat[]" value="0">Leadership</label><br>
-  <label><input type="checkbox" name="cat[]" value="1">Character</label><br>
-  <label><input type="checkbox" name="cat[]" value="2">Professionalism</label><br>
-  <label><input type="checkbox" name="cat[]" value="3">Team Driven</label><br>
-  <label><input type="checkbox" name="cat[]" value="4">Judgment and Tact</label><br>
-
-
-<br><br>
-
-<label><p>What are their strengths? Please elaborate and include relevant examples. If you gave a score higher than a
-  3 in any of the categories listed above, give your reasons here.</p>
-  <textarea name="strengths" class="openResponse"></textarea>
-</label>
-
-<br><br>
-
-<label><p>What are their areas of improvement? Please elaborate and include relevant examples. If you gave a score lower than a
-  3 in any of the categories listed above, give your reasons here.</p>
-  <textarea name="areasOfI" class="openResponse"></textarea>
-</label>
-
-<br><br>
-
-<label><p>What can they do to improve in these areas?</p>
-  <textarea name="waysImprove" class="openResponse"></textarea>
-</label>
-
-<br><br>
-
-<p>What is the trend of their overall performance?</p>
-  <label><input type="radio" name="trend" value="0">Maintaining Exemplary Performance</label><br>
-  <label><input type="radio" name="trend" value="1">Maintaining Good Performance</label><br>
-  <label><input type="radio" name="trend" value="2">Improving Performance</label><br>
-  <label><input type="radio" name="trend" value="3">Declining Performance</label><br>
-  <label><input type="radio" name="trend" value="4">Maintaining Poor Performance</label>
-
-<br><br>
-
-<label><p>How have you observed this trend?</p>
-  <textarea name="trendReason" class="openResponse"></textarea>
-</label>
-
-<br><br>
-
-<br><br>
-
-<input type="submit" value="Submit">
-
+  <br><br>
+  <div class="col">
+  <input type="submit" class="btn btn-primary" value="Submit">
+  </div>
   </form>
+  </div>
+  </div>
+  </div>
+  <script>
+    selectClass();
+  </script>
 
-      	<?php
-          }
-        ?>
-
-<script>
-  selectClass();
-</script>
-
-
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 </body>
 

@@ -1,5 +1,7 @@
 <?php
   session_start();
+  if(empty($_SESSION["user"]) && !isset($_SESSION["user"]))
+  header("Location: welcome.html");
  ?>
  <!DOCTYPE html>
 
@@ -15,16 +17,6 @@
 <body>
 
   <p>Stats</p>
-
-<?php
-if(empty($_SESSION["user"]) && !isset($_SESSION["user"]))
-  {
-      echo "<h2>You are not logged in</h2><p>Go to the login page <a href='login.php'>here</a></p>";
-        }
-	  else { 
-		echo "<a href=\"myAccount.php\"> My Account </a> <br>";
-		}
-?>
 </body>
 
 </html>

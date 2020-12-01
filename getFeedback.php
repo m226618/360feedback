@@ -1,13 +1,10 @@
 <?php
   require_once('middata_functions.inc.php');
   session_start();
+  if(empty($_SESSION["user"]) && !isset($_SESSION["user"]))
+  header("Location: welcome.html");
   //need to verify that user is logged in before displaying page
-  if(empty($_SESSION['user']) && !isset($_SESSION['user']))
-  {
-    echo "You are not logged in";
-  }
-  else
-  {
+
  ?>
 <!DOCTYPE html>
 
@@ -87,7 +84,12 @@
 </head>
 
 <body class="text-dark text-center">
-  <div class="jumbotron display-4">Feedback submitted for <?php echo $_SESSION['first'] . " " . $_SESSION['last']; ?></div>
+  <div class="jumbotron">
+    <div class="display-4">
+      360 Feedback - View Feedback
+    </div>
+    <h4>Feedback submitted for <?php echo $_SESSION['first'] . " " . $_SESSION['last']; ?></h4>
+  </div>
   <div id="top">
   </div>
   <br><br>
@@ -112,10 +114,5 @@
  </script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
 </body>
-
 </html>
-<?php
-}
-?>
