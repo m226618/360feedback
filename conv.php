@@ -27,6 +27,8 @@ for($i = 0; $i < count($allMids); $i++)
     }
   }
   $allData[$company][$year][$num][0] = $allMids[$i][0] . " " . $allMids[$i][1] . "*";
+  $allData[$company][$year][$num][1] = 0;
+  $allData[$company][$year][$num][2] = 0;
 }
 $ser = fopen("midinfo.ser", 'w');
 if(!$ser)

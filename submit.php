@@ -102,15 +102,13 @@
 
     echo "<p> Your feedback has been submitted! </p> ";
 
-    
+
     $feedback = "
     <div id=\"$name\" class=\"feedback\">
-      <div class=\"col\">
-      <div class=\"jumbotron\">
       <fieldset>
-        <legend>Feedback submitted by: <b>$name</b></legend>
-        <p>This person is my: <b>$rel</b></p>\n
-        <p>On a scale of 1-5, how well do you know this person? <b>$fam</b></p>
+        <legend>Feedback submitted by: $name</legend>
+        <p>This person is my: $rel</p>\n
+        <p>On a scale of 1-5, how well do you know this person? $fam</p>
         <table>
         <tr>
           <th colspan=5> A. Leadership. Demonstrated ability to effectively lead and develop subordinates by establishing and achieving goals that support the mission,
@@ -272,20 +270,13 @@
 
 
       </fieldset>
-      </div>
-      </div>
     </div><br>";
 
     addFeedback($revieweeAlpha, $feedback);
   }
 
-  if(!isset($_SESSION['numsub']))
-  {
-    $_SESSION['numsub'] = 1;
-  }
-  else {
-    $_SESSION['numsub'] += 1;
-  }
+  incFeedbackSubm($_SESSION['alpha'], $_SESSION['co']);
+  incFeedbackRcvd($revieweeAlpha, $_SESSION['co']);
 
   ?>
 
