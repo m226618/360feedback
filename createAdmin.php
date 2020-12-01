@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body>
+<body class="text-dark text-center">
 <div class="jumbotron text-center display-4">Admin Account Application Submitted</div>
 
   <?php
@@ -34,11 +34,13 @@
 
   ?>
 
-<div class="row text-center justify-content-center">
+  <div class="row text-center justify-content-center">
     <div class="col">
       <div class="jumbotron"><a href="welcome.html" class="btn btn-primary" role="button">Return</a></div>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 </body>
 </html>
