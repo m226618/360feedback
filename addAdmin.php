@@ -24,7 +24,6 @@
     if(!$fp)
         echo "<p>Failed to open whitelist txt file!</p>\n";
     fwrite($fp, $_POST['email'] + "\n");
-    
   ?>
 
   <a href="welcome.html"> Home </a> <br>
