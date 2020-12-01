@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if($_SESSION['user'] != '226618')
+  if($_SESSION['user'] != 'm226618')
     header("Location: welcome.html");
 ?>
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
 </head>
 <body>
   <p>Add Administrator</p>
-  
+
   <form method="POST" action="addAdmin.php">
     <label for="email">Email: </label>
     <input type="email" name="email" placeholder="Email Address" id="email">
@@ -23,7 +23,7 @@
     $fp = fopen("whitelist.txt", 'a');
     if(!$fp)
         echo "<p>Failed to open whitelist txt file!</p>\n";
-    fwrite($fp, $_POST['email'] + "\n");
+    fwrite($fp, $_POST['email'] . "\n");
   ?>
 
   <a href="welcome.html"> Home </a> <br>

@@ -57,7 +57,7 @@
         while( !feof($fp) )
         {
           $len = strlen($_SESSION['user']);
-          if(substr($line, 0, $len))
+          if(substr($line, 0, $len) == $_SESSION['user'])
           {
             echo substr($line, 0, $len);
             $_SESSION['admin'] = "true";
