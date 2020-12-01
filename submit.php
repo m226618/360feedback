@@ -104,9 +104,6 @@
 
     if(substr($_SESSION["user"], 1, 3)==$_SESSION['maxYear'])
       $name = "Plebe"; //NEED TO TEST WITH A (FRIENDLY) PLEBE
-
-    echo "<p> Your feedback has been submitted! </p> ";
-
     
     $feedback = "
     <div id=\"$name\" class=\"feedback\">
@@ -289,10 +286,18 @@
   ?>
 
   <br>
- <a href="myAccount.php"> Go back to my account </a> <br>
- <a href="logout.php"> Logout </a>
- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <div class="row text-center justify-content-center">
+    <div class="col">
+      <div class="jumbotron">
+        <h4>Your feedback has been submitted.</h4>
+        <a href="myAccount.php" class="btn btn-primary" role="button">Home</a>
+        <a href="submitFeedback.php" class="btn btn-primary" role="button">Submit more feedback</a>
+        <a href="logout.php" class="btn btn-primary" role="button">logout</a>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 </body>
 </html>

@@ -50,7 +50,14 @@
 
 <body class="text-dark text-center">
 <div class="jumbotron text-center display-4">360 Feedback - Submit Feedback</div> 
-
+<div class="row text-center justify-content-center">
+  <div class="col">
+    <div class="jumbotron">
+      <a href="myAccount.php" class="btn btn-primary" role="button">Home</a>
+      <a href="logout.php" class="btn btn-primary" role="button">logout</a>
+    </div>
+  </div>
+</div>
   <!--explanation / tips for writing good feedback
 
 	  //feedback form (action="submit.php")-->
@@ -152,7 +159,7 @@
       <input type="number" name="familiarity" min="1" max="5">
     </label>
     </div>
-    <br><br>
+    <br>
     <div class="col">
     <table>
       <tr>
@@ -271,7 +278,7 @@
       </tr>
     </table>
     </div>
-  <br><br>
+  <br>
   <div class="col">
   <p>In what areas are you providing feedback? Select all that apply.</p>
     <label><input type="checkbox" name="cat[]" value="0">Leadership</label><br>
@@ -281,27 +288,27 @@
     <label><input type="checkbox" name="cat[]" value="4">Judgment and Tact</label><br>
   </div>
 
-  <br><br>
+  <br>
   <div class="col">
   <label><p>What are their strengths? Please elaborate and include relevant examples. If you gave a score higher than a
     3 in any of the categories listed above, give your reasons here.</p>
     <textarea name="strengths" class="openResponse"></textarea>
   </label>
   </div>
-  <br><br>
+  <br>
   <div class="col">
   <label><p>What are their areas of improvement? Please elaborate and include relevant examples. If you gave a score lower than a
     3 in any of the categories listed above, give your reasons here.</p>
     <textarea name="areasOfI" class="openResponse"></textarea>
   </label>
   </div>
-  <br><br>
+  <br>
   <div class="col">
   <label><p>What can they do to improve in these areas?</p>
     <textarea name="waysImprove" class="openResponse"></textarea>
   </label>
   </div>
-  <br><br>
+  <br>
   <div class="col">
   <p>What is the trend of their overall performance?</p>
     <label><input type="radio" name="trend" value="0">Maintaining Exemplary Performance</label><br>
@@ -310,15 +317,15 @@
     <label><input type="radio" name="trend" value="3">Declining Performance</label><br>
     <label><input type="radio" name="trend" value="4">Maintaining Poor Performance</label>
   </div>
-  <br><br>
+  <br>
   <div class="col">
   <label><p>How have you observed this trend?</p>
     <textarea name="trendReason" class="openResponse"></textarea>
   </label>
   </div>
-  <br><br>
+  <br>
 
-  <br><br>
+  <br>
   <div class="col">
   <input type="submit" class="btn btn-primary" value="Submit">
   </div>
