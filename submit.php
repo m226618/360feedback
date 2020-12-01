@@ -275,7 +275,13 @@
     addFeedback($revieweeAlpha, $feedback);
   }
 
-
+  if(!isset($_SESSION['numsub']))
+  {
+    $_SESSION['numsub'] = 1;
+  }
+  else {
+    $_SESSION['numsub'] += 1;
+  }
 
   ?>
 

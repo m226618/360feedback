@@ -282,4 +282,65 @@ function getMidsInCo($class)
   return $mids;
 }
 
+function getFeedbackRcvd($alpha)
+{
+  //open serialized array file
+  $serfile = fopen("midinfo.ser", 'r');
+  if(!$serfile)
+  {
+    echo "<p>There was an error reading the serialized array</p>";
+  }
+
+  //get the serialized string out of the file
+  $serialized = fgets($serfile);
+
+  //unserialize the serialized string and get the 3D array
+  $orig = unserialize($serialized);
+  $num = 0;
+
+  //here we loop through all individual mids in user's company and year, looking
+  //for a match to the given alpha
+
+  $y = substr($_SESSION['alpha'], 0, 2);
+  for($num = 0; $num < 50; $num++)
+  {
+    //if we find the alpha, get the long string
+    if($alpha == substr($orig[$_SESSION['co']][$y][$num][0], 0, 6))
+    {
+      $num = $orig[$_SESSION['co']][$y][$num][1];
+    }
+  }
+
+  return $num;
+}
+
+function incFeedbackRcvd($alpha)
+{
+  //open serialized array file
+  $serfile = fopen("midinfo.ser", 'r');
+  if(!$serfile)
+  {
+    echo "<p>There was an error reading the serialized array</p>";
+  }
+
+  //get the serialized string out of the file
+  $serialized = fgets($serfile);
+
+  //unserialize the serialized string and get the 3D array
+  $orig = unserialize($serialized);
+
+  //here we loop through all individual mids in user's company and year, looking
+  //for a match to the given alpha
+
+  $y = substr($_SESSION['alpha'], 0, 2);
+  for($num = 0; $num < 50; $num++)
+  {
+    //if we find the alpha, get the long string
+    if($alpha == substr($orig[$_SESSION['co']][$y][$num][0], 0, 6))
+    {
+      $orig[$_SESSION['co']][$y][$num][1] += 1;
+    }
+  }
+}
+
 ?>
