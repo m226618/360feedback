@@ -27,7 +27,7 @@ if(empty($_SESSION["user"]) && !isset($_SESSION["user"]))
 	  else {
       echo "<p>Stats</p>";
       echo "<form>
-        Search: <input type='text' id='company' onkeyup='search(this.value)''>
+        Company: <input type='number' id='company' min = '1' max = '30'>
         <br><br><input type='button' value='Search' onClick='search(this.value)'><br><br>";
   		echo "<a href=\"myAccount.php\"> Go home </a> <br>";
 		}
