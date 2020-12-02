@@ -32,7 +32,33 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body class="text-dark text-center">
-  <div class="jumbotron text-center display-4">360 Feedback - Feedback Submission</div>
+  <div class="jumbotron">
+		<div class="display-4">360 Feedback - Feedback Submission</div>
+		<br>
+		<ul class="nav nav-pills justify-content-center">
+			<li class="nav-item">
+				<a class="nav-link" href="myAccount.php">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="getFeedback.php">Get Feedback</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link active" href="submitFeedback.php">Submit Feedback</a>
+			</li>
+			<?php
+			if(!(empty($_SESSION["admin"]) && !isset($_SESSION["admin"]))){
+			?>
+			<li class="nav-item">
+				<a class="nav-link" href="stats.php">Feedback Statistics</a>
+			</li>
+			<?php
+			}
+			?>
+			<li class="nav-item">
+				<a class="nav-link" href="logout.php">Logout</a>
+			</li>
+		</ul>
+	</div>
   <?php
   require_once("middata_functions.inc.php");
 

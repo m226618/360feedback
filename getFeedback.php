@@ -85,9 +85,32 @@
 
 <body class="text-dark text-center">
   <div class="jumbotron">
-    <div class="display-4">
-      360 Feedback - View Feedback
-    </div>
+		<div class="display-4">360 Feedback - View Feedback</div>
+		<br>
+		<ul class="nav nav-pills justify-content-center">
+			<li class="nav-item">
+				<a class="nav-link" href="myAccount.php">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link active" href="getFeedback.php">Get Feedback</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="submitFeedback.php">Submit Feedback</a>
+      </li>
+      <?php
+			if(!(empty($_SESSION["admin"]) && !isset($_SESSION["admin"]))){
+			?>
+			<li class="nav-item">
+				<a class="nav-link" href="stats.php">Feedback Statistics</a>
+			</li>
+			<?php
+			}
+			?>
+			<li class="nav-item">
+				<a class="nav-link" href="logout.php">Logout</a>
+			</li>
+		</ul>
+    <br>
     <h4>Feedback submitted for <?php echo $_SESSION['first'] . " " . $_SESSION['last']; ?></h4>
   </div>
   <div id="top">
@@ -100,10 +123,6 @@
   echo strstr($feedback, '<div');
   echo "</div></div>";
 ?>
-
-  <br>
- <a href="myAccount.php"> Go back to my account </a> <br>
- <a href="logout.php"> Logout </a>
 
  <script>
    if(feedbackStatus()) {

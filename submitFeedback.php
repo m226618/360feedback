@@ -49,15 +49,33 @@
 </head>
 
 <body class="text-dark text-center">
-<div class="jumbotron text-center display-4">360 Feedback - Submit Feedback</div> 
-<div class="row text-center justify-content-center">
-  <div class="col">
-    <div class="jumbotron">
-      <a href="myAccount.php" class="btn btn-primary" role="button">Home</a>
-      <a href="logout.php" class="btn btn-primary" role="button">logout</a>
-    </div>
-  </div>
-</div>
+  <div class="jumbotron">
+		<div class="display-4">360 Feedback - Submit Feedback</div>
+		<br>
+		<ul class="nav nav-pills justify-content-center">
+			<li class="nav-item">
+				<a class="nav-link" href="myAccount.php">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="getFeedback.php">Get Feedback</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link active" href="submitFeedback.php">Submit Feedback</a>
+			</li>
+      <?php
+			if(!(empty($_SESSION["admin"]) && !isset($_SESSION["admin"]))){
+			?>
+			<li class="nav-item">
+				<a class="nav-link" href="stats.php">Feedback Statistics</a>
+			</li>
+			<?php
+			}
+			?>
+			<li class="nav-item">
+				<a class="nav-link" href="logout.php">Logout</a>
+			</li>
+		</ul>
+	</div>
   <!--explanation / tips for writing good feedback
 
 	  //feedback form (action="submit.php")-->
