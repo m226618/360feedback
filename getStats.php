@@ -7,8 +7,8 @@
   "<table class=\"table table-hover\">
     <thead>
       <tr>
-        <th>Alpha</th>
         <th>Name</th>
+        <th>Alpha</th>
         <th>Feedback Submitted</th>
         <th>Feedback Recieved</th>
       </tr>
