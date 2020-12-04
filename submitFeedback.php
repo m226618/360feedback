@@ -1,3 +1,8 @@
+<!--
+Author: Courtney Tse
+Creation Date: October 20
+Description: Page where midshipmen can submit feedback for their company mates.
+-->
 <?php
   session_start();
   if(empty($_SESSION["user"]) && !isset($_SESSION["user"]))
@@ -15,6 +20,7 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 
   <script>
+    //show dropdown menu of specified class once a class is selected
     function selectClass() {
       var classNames = [document.getElementById("1/C"), document.getElementById("2/C"), document.getElementById("3/C"),
                         document.getElementById("4/C")];
@@ -27,7 +33,7 @@
     }
     </script>
     <script>
-
+    //check if a radiobutton or checkbox is checked
     function oneIsChecked(name) {
       var arr = [name+"1", name+"2", name+"3", name+"4", name+"5"];
       for(var i=0; i<arr.length; i++) {
@@ -37,25 +43,19 @@
       return false;
     }
 
+    //make sure all parts of form have been completed, show alert if not
     function validate() {
       if(document.getElementById("i1").value.length == 0 || document.getElementById("i2").value.length == 0 ||
           document.getElementById("i3").value.length == 0 || document.getElementById("i4").value.length == 0 || document.getElementById("i5").value.length == 0) {
             alert("Please complete all parts of the feedback form before you submit!");
             return false;
       }
-/*
-      var selectInputs = [document.getElementsByName("a1"), document.getElementsByName("a2"), document.getElementsByName("b1"),
-      document.getElementsByName("b2"), document.getElementsByName("b3"), document.getElementsByName("c1"),
-      document.getElementsByName("c2"), document.getElementsByName("d1"), document.getElementsByName("d2"),
-      document.getElementsByName("cat[]"), document.getElementsByName("trend")];
-*/
       if(!oneIsChecked("a1") || !oneIsChecked("a2") || !oneIsChecked("b1") || !oneIsChecked("b2") || !oneIsChecked("b3") ||
-    !oneIsChecked("c1") || !oneIsChecked("c2") || !oneIsChecked("d1") || !oneIsChecked("d2") ||
-  !oneIsChecked("cat") || !oneIsChecked("trend")) {
+      !oneIsChecked("c1") || !oneIsChecked("c2") || !oneIsChecked("d1") || !oneIsChecked("d2") ||
+      !oneIsChecked("cat") || !oneIsChecked("trend")) {
         alert("Please complete all parts of the feedback form before you submit!");
         return false;
       }
-
 
       return true;
     }
@@ -72,7 +72,7 @@
 				<a class="nav-link" href="myAccount.php">Home</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="getFeedback.php">Get Feedback</a>
+				<a class="nav-link" href="getFeedback.php">View Feedback</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link active" href="submitFeedback.php">Submit Feedback</a>
@@ -91,9 +91,6 @@
 			</li>
 		</ul>
 	</div>
-  <!--explanation / tips for writing good feedback
-
-	  //feedback form (action="submit.php")-->
 
   <?php require_once("middata_functions.inc.php"); ?>
   <div class="container">

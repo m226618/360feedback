@@ -1,3 +1,8 @@
+<!--
+Author: Courtney Tse
+Creation Date: October 20
+Description: Called when user submits feedback from the submit feedback page
+-->
 <?php
   // Using sessions to store user login information
   session_start();
@@ -9,24 +14,6 @@
 <html>
 <head lang="en"><meta charset = "utf-8">
   <title>Submit</title>
-  <style>
-    table, td, th {
-      border: 1px solid black;
-    }
-
-    table {
-      width: 1000px;
-    }
-
-    .scale {
-      width: 200px;
-    }
-
-    .openResponse {
-      width: 500px;
-      height: 50px;
-    }
-  </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="styles.css">
@@ -40,7 +27,7 @@
 				<a class="nav-link" href="myAccount.php">Home</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="getFeedback.php">Get Feedback</a>
+				<a class="nav-link" href="getFeedback.php">View Feedback</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link active" href="submitFeedback.php">Submit Feedback</a>
@@ -128,8 +115,8 @@
     //name of reviewer
     $name = $_SESSION['first']." ".$_SESSION['last'];
 
-    if(substr($_SESSION["user"], 1, 3)==$_SESSION['maxYear'])
-      $name = "Plebe"; //NEED TO TEST WITH A (FRIENDLY) PLEBE
+    //if(substr($_SESSION["user"], 1, 3)==$_SESSION['maxYear'])
+      //$name = "Plebe"; //NEED TO TEST WITH A (FRIENDLY) PLEBE
 
     $feedback = "
     <div id=\"$name\" class=\"feedback\">
@@ -255,11 +242,11 @@
         </table>
 
         <p>In what areas are you providing feedback? Select all that apply.</p>
-          <label><input type=checkbox value=0 {$checkedArr[10][0]} > Leadership</label><br>
-          <label><input type=checkbox value=1 {$checkedArr[10][1]} > Character</label><br>
-          <label><input type=checkbox value=2 {$checkedArr[10][2]} > Professionalism</label><br>
-          <label><input type=checkbox value=3 {$checkedArr[10][3]} > Team Driven</label><br>
-          <label><input type=checkbox value=4 {$checkedArr[10][4]} > Judgment and Tact</label><br>
+          <label><input type=checkbox value=0 {$checkedArr[10][0]} disabled> Leadership</label><br>
+          <label><input type=checkbox value=1 {$checkedArr[10][1]} disabled> Character</label><br>
+          <label><input type=checkbox value=2 {$checkedArr[10][2]} disabled> Professionalism</label><br>
+          <label><input type=checkbox value=3 {$checkedArr[10][3]} disabled> Team Driven</label><br>
+          <label><input type=checkbox value=4 {$checkedArr[10][4]} disabled> Judgment and Tact</label><br>
 
 
         <br><br>
@@ -305,6 +292,7 @@
 
   incFeedbackSubm($_SESSION['alpha'], $_SESSION['co']);
   incFeedbackRcvd($revieweeAlpha, $_SESSION['co']);
+  echo "<h4>Your feedback has been submitted.</h4>";
 
   ?>
 
@@ -312,7 +300,6 @@
   <div class="row text-center justify-content-center">
     <div class="col">
       <div class="jumbotron">
-        <h4>Your feedback has been submitted.</h4>
         <a href="myAccount.php" class="btn btn-primary" role="button">Home</a>
         <a href="submitFeedback.php" class="btn btn-primary" role="button">Submit more feedback</a>
         <a href="logout.php" class="btn btn-primary" role="button">logout</a>
