@@ -83,7 +83,7 @@ Description: Page where midshipmen can view feedback that has been submitted for
 				<a class="nav-link" href="submitFeedback.php">Submit Feedback</a>
       </li>
       <?php
-			if(!(empty($_SESSION["admin"]) && !isset($_SESSION["admin"]))){
+      if(!(empty($_SESSION["admin"]) && !isset($_SESSION["admin"]))){
 			?>
 			<li class="nav-item">
 				<a class="nav-link" href="stats.php">Feedback Statistics</a>

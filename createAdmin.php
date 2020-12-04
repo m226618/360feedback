@@ -1,10 +1,16 @@
 <?php
+  //
   session_start();
   if(empty($_SESSION["user"]) && !isset($_SESSION["user"]))
     header("Location: welcome.html");
  ?>
  <!DOCTYPE html>
-
+<!--
+Author: John Babiak
+Creation Date: October 20
+Description: This is the page that all admin account creation attempts are sent to. This page processes the data and sends an email to the super-admin, 
+             The only user with the ability to add new admins.
+-->
 <html>
 <head lang="en"><meta charset = "utf-8">
   <title>Create Admin</title>
@@ -16,22 +22,15 @@
 <div class="jumbotron text-center display-4">Admin Account Application Submitted</div>
 
   <?php
-
+  //This section recieves the fields that the user inputted in adminSignup.html, and uses them to compose an email to the super-admin detailing 
+  //The potential administrators request.
   $name = $_POST['name'];
   $email = $_POST['email'];
   $position = $_POST['position'];
 
   $message = "A new user is attempting to gain administrator privileges.\n\nTheir details are as follows\nName: $name\nEmail: $email\nPosition: $position\n\nThis is an automated message, please do not reply.";
 
-  mail("m230270@usna.edu", "Attempted Admin Access", $message);
-  //need to verify that user is admin
-  
-  //query for name, email, and position.
-  
-  //send email to courtney 
-
-  //courtney will redirect them to a new file to set up session variables if admitted.
-
+  mail("m226618@usna.edu", "Attempted Admin Access", $message);
 
 
   ?>

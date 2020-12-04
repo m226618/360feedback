@@ -6,8 +6,6 @@
  ?>
  <!DOCTYPE html>
 
-<!-- A bare bones web page to start IT350 assignments with -->
-
 <html lang="en">
 
 <head>
