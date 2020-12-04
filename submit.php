@@ -107,7 +107,7 @@
 
   //validate for mandatory fields
   if($emptyVar || count($traits) == 0 ) {
-    echo "<p>Incomplete</p>";
+
   } else {
     //when everything is validated correctly, write all the feedback and embedded HTML to $feedback string, then
     //write $feedback to reviewee's array
@@ -149,11 +149,11 @@
           </td>
         </tr>
         <tr>
-          <td class=scale><label><input type=radio value=1 {$checkedArr[0][0]} >1 Below Standard</label></td>
-          <td class=scale><label><input type=radio value=2 {$checkedArr[0][1]} >2</label></td>
-          <td class=scale><label><input type=radio value=3 {$checkedArr[0][2]} >3 Meets Standard</label></td>
-          <td class=scale><label><input type=radio value=4 {$checkedArr[0][3]} >4</label></td>
-          <td class=scale><label><input type=radio value=5 {$checkedArr[0][4]} >5 Exceeds Standard</label></td>
+          <td class=scale><label><input type=radio value=1 {$checkedArr[0][0]} > 1 Below Standard</label></td>
+          <td class=scale><label><input type=radio value=2 {$checkedArr[0][1]} > 2</label></td>
+          <td class=scale><label><input type=radio value=3 {$checkedArr[0][2]} > 3 Meets Standard</label></td>
+          <td class=scale><label><input type=radio value=4 {$checkedArr[0][3]} > 4</label></td>
+          <td class=scale><label><input type=radio value=5 {$checkedArr[0][4]} > 5 Exceeds Standard</label></td>
         </tr>
         <tr>
           <td colspan=5><b>2. Developing Subordinates.</b> Commitment to train, educate and challenge subordinates, cultivating personal and professional development
@@ -161,11 +161,11 @@
           </td>
         </tr>
         <tr>
-          <td class=scale><label><input type=radio value=1 {$checkedArr[1][0]} >1 Below Standard</label></td>
-          <td class=scale><label><input type=radio value=2 {$checkedArr[1][1]} >2</label></td>
-          <td class=scale><label><input type=radio value=3 {$checkedArr[1][2]} >3 Meets Standard</label></td>
-          <td class=scale><label><input type=radio value=4 {$checkedArr[1][3]} >4</label></td>
-          <td class=scale><label><input type=radio value=5 {$checkedArr[1][4]} >5 Exceeds Standard</label></td>
+          <td class=scale><label><input type=radio value=1 {$checkedArr[1][0]} > 1 Below Standard</label></td>
+          <td class=scale><label><input type=radio value=2 {$checkedArr[1][1]} > 2</label></td>
+          <td class=scale><label><input type=radio value=3 {$checkedArr[1][2]} > 3 Meets Standard</label></td>
+          <td class=scale><label><input type=radio value=4 {$checkedArr[1][3]} > 4</label></td>
+          <td class=scale><label><input type=radio value=5 {$checkedArr[1][4]} > 5 Exceeds Standard</label></td>
         </tr>
         <tr>
           <th colspan=5>B. Character. Behavior and actions consistent with Navy and Marine Corps core values of honor, courage, and commitment.</th>
@@ -175,33 +175,33 @@
             decisions and actions. Demonstrating integrity by the consistent alignment of one's actions with the values, standards, and expectations of USNA.</td>
         </tr>
         <tr>
-          <td class=scale><label><input type=radio value=1 {$checkedArr[2][0]} >1 Below Standard</label></td>
-          <td class=scale><label><input type=radio value=2 {$checkedArr[2][1]} >2</label></td>
-          <td class=scale><label><input type=radio value=3 {$checkedArr[2][2]} >3 Meets Standard</label></td>
-          <td class=scale><label><input type=radio value=4 {$checkedArr[2][3]} >4</label></td>
-          <td class=scale><label><input type=radio value=5 {$checkedArr[2][4]} >5 Exceeds Standard</label></td>
+          <td class=scale><label><input type=radio value=1 {$checkedArr[2][0]} > 1 Below Standard</label></td>
+          <td class=scale><label><input type=radio value=2 {$checkedArr[2][1]} > 2</label></td>
+          <td class=scale><label><input type=radio value=3 {$checkedArr[2][2]} > 3 Meets Standard</label></td>
+          <td class=scale><label><input type=radio value=4 {$checkedArr[2][3]} > 4</label></td>
+          <td class=scale><label><input type=radio value=5 {$checkedArr[2][4]} > 5 Exceeds Standard</label></td>
         </tr>
         <tr>
           <td colspan=5><b>2. Courage.</b> Possessing the moral, mental and physical strength to overcome challenges, demonstrate the highest standards
             of personal conduct, and make tough decisions under stress regardless of personal consequences.</td>
         </tr>
         <tr>
-          <td class=scale><label><input type=radio value=1 {$checkedArr[3][0]} >1 Below Standard</label></td>
-          <td class=scale><label><input type=radio value=2 {$checkedArr[3][1]} >2</label></td>
-          <td class=scale><label><input type=radio value=3 {$checkedArr[3][2]} >3 Meets Standard</label></td>
-          <td class=scale><label><input type=radio value=4 {$checkedArr[3][3]} >4</label></td>
-          <td class=scale><label><input type=radio value=5 {$checkedArr[3][4]} >5 Exceeds Standard</label></td>
+          <td class=scale><label><input type=radio value=1 {$checkedArr[3][0]} > 1 Below Standard</label></td>
+          <td class=scale><label><input type=radio value=2 {$checkedArr[3][1]} > 2</label></td>
+          <td class=scale><label><input type=radio value=3 {$checkedArr[3][2]} > 3 Meets Standard</label></td>
+          <td class=scale><label><input type=radio value=4 {$checkedArr[3][3]} > 4</label></td>
+          <td class=scale><label><input type=radio value=5 {$checkedArr[3][4]} > 5 Exceeds Standard</label></td>
         </tr>
         <tr>
           <td colspan=5><b>3. Commitment.</b> Doing one's duty in all things at all times with fidelity. Selflessly devoting oneself to our institution and heritage.
             Aspiring to achieve excellence without arrogance.</td>
         </tr>
         <tr>
-          <td class=scale><label><input type=radio value=1 {$checkedArr[4][0]} >1 Below Standard</label></td>
-          <td class=scale><label><input type=radio value=2 {$checkedArr[4][1]} >2</label></td>
-          <td class=scale><label><input type=radio value=3 {$checkedArr[4][2]} >3 Meets Standard</label></td>
-          <td class=scale><label><input type=radio value=4 {$checkedArr[4][3]} >4</label></td>
-          <td class=scale><label><input type=radio value=5 {$checkedArr[4][4]} >5 Exceeds Standard</label></td>
+          <td class=scale><label><input type=radio value=1 {$checkedArr[4][0]} > 1 Below Standard</label></td>
+          <td class=scale><label><input type=radio value=2 {$checkedArr[4][1]} > 2</label></td>
+          <td class=scale><label><input type=radio value=3 {$checkedArr[4][2]} > 3 Meets Standard</label></td>
+          <td class=scale><label><input type=radio value=4 {$checkedArr[4][3]} > 4</label></td>
+          <td class=scale><label><input type=radio value=5 {$checkedArr[4][4]} > 5 Exceeds Standard</label></td>
         </tr>
         <tr>
           <th colspan=5>C. Professionalism. Demonstrated initiative and competence to consistently produce quality results. Dedicated to the profession
@@ -212,22 +212,22 @@
             warfighting and leadership aptitude. Integrates naval traditions and customs into daily practices and leadership decisions.</td>
         </tr>
         <tr>
-          <td class=scale><label><input type=radio value=1 {$checkedArr[5][0]} >1 Below Standard</label></td>
-          <td class=scale><label><input type=radio value=2 {$checkedArr[5][1]} >2</label></td>
-          <td class=scale><label><input type=radio value=3 {$checkedArr[5][2]} >3 Meets Standard</label></td>
-          <td class=scale><label><input type=radio value=4 {$checkedArr[5][3]} >4</label></td>
-          <td class=scale><label><input type=radio value=5 {$checkedArr[5][4]} >5 Exceeds Standard</label></td>
+          <td class=scale><label><input type=radio value=1 {$checkedArr[5][0]} > 1 Below Standard</label></td>
+          <td class=scale><label><input type=radio value=2 {$checkedArr[5][1]} > 2</label></td>
+          <td class=scale><label><input type=radio value=3 {$checkedArr[5][2]} > 3 Meets Standard</label></td>
+          <td class=scale><label><input type=radio value=4 {$checkedArr[5][3]} > 4</label></td>
+          <td class=scale><label><input type=radio value=5 {$checkedArr[5][4]} > 5 Exceeds Standard</label></td>
         </tr>
         <tr>
           <td colspan=5><b>2. Competence.</b> The ability to complete tasks effectively and efficiently. Demonstrates a sufficiency of knowledge
             that enables one to act in a variety of situations.</td>
         </tr>
         <tr>
-          <td class=scale><label><input type=radio value=1 {$checkedArr[6][0]} >1 Below Standard</label></td>
-          <td class=scale><label><input type=radio value=2 {$checkedArr[6][1]} >2</label></td>
-          <td class=scale><label><input type=radio value=3 {$checkedArr[6][2]} >3 Meets Standard</label></td>
-          <td class=scale><label><input type=radio value=4 {$checkedArr[6][3]} >4</label></td>
-          <td class=scale><label><input type=radio value=5 {$checkedArr[6][4]} >5 Exceeds Standard</label></td>
+          <td class=scale><label><input type=radio value=1 {$checkedArr[6][0]} > 1 Below Standard</label></td>
+          <td class=scale><label><input type=radio value=2 {$checkedArr[6][1]} > 2</label></td>
+          <td class=scale><label><input type=radio value=3 {$checkedArr[6][2]} > 3 Meets Standard</label></td>
+          <td class=scale><label><input type=radio value=4 {$checkedArr[6][3]} > 4</label></td>
+          <td class=scale><label><input type=radio value=5 {$checkedArr[6][4]} > 5 Exceeds Standard</label></td>
         </tr>
         <tr>
           <th colspan=5>D. Team Driven. Values diversity of thought and contributes to team building and team results over personal achievement.</th>
@@ -236,30 +236,30 @@
           <td colspan=5><b>1. Values Diversity of Thought</b></td>
         </tr>
         <tr>
-          <td class=scale><label><input type=radio value=1 {$checkedArr[7][0]} >1 Below Standard</label></td>
-          <td class=scale><label><input type=radio value=2 {$checkedArr[7][1]} >2</label></td>
-          <td class=scale><label><input type=radio value=3 {$checkedArr[7][2]} >3 Meets Standard</label></td>
-          <td class=scale><label><input type=radio value=4 {$checkedArr[7][3]} >4</label></td>
-          <td class=scale><label><input type=radio value=5 {$checkedArr[7][4]} >5 Exceeds Standard</label></td>
+          <td class=scale><label><input type=radio value=1 {$checkedArr[7][0]} > 1 Below Standard</label></td>
+          <td class=scale><label><input type=radio value=2 {$checkedArr[7][1]} > 2</label></td>
+          <td class=scale><label><input type=radio value=3 {$checkedArr[7][2]} > 3 Meets Standard</label></td>
+          <td class=scale><label><input type=radio value=4 {$checkedArr[7][3]} > 4</label></td>
+          <td class=scale><label><input type=radio value=5 {$checkedArr[7][4]} > 5 Exceeds Standard</label></td>
         </tr>
         <tr>
           <td colspan=5><b>2. Contributes to Team Building and Team Results over Personal Achievement</b></td>
         </tr>
         <tr>
-          <td class=scale><label><input type=radio value=1 {$checkedArr[8][0]} >1 Below Standard</label></td>
-          <td class=scale><label><input type=radio value=2 {$checkedArr[8][1]} >2</label></td>
-          <td class=scale><label><input type=radio value=3 {$checkedArr[8][2]} >3 Meets Standard</label></td>
-          <td class=scale><label><input type=radio value=4 {$checkedArr[8][3]} >4</label></td>
-          <td class=scale><label><input type=radio value=5 {$checkedArr[8][4]} >5 Exceeds Standard</label></td>
+          <td class=scale><label><input type=radio value=1 {$checkedArr[8][0]} > 1 Below Standard</label></td>
+          <td class=scale><label><input type=radio value=2 {$checkedArr[8][1]} > 2</label></td>
+          <td class=scale><label><input type=radio value=3 {$checkedArr[8][2]} > 3 Meets Standard</label></td>
+          <td class=scale><label><input type=radio value=4 {$checkedArr[8][3]} > 4</label></td>
+          <td class=scale><label><input type=radio value=5 {$checkedArr[8][4]} > 5 Exceeds Standard</label></td>
         </tr>
         </table>
 
         <p>In what areas are you providing feedback? Select all that apply.</p>
-          <label><input type=checkbox value=0 {$checkedArr[10][0]} >Leadership</label><br>
-          <label><input type=checkbox value=1 {$checkedArr[10][1]} >Character</label><br>
-          <label><input type=checkbox value=2 {$checkedArr[10][2]} >Professionalism</label><br>
-          <label><input type=checkbox value=3 {$checkedArr[10][3]} >Team Driven</label><br>
-          <label><input type=checkbox value=4 {$checkedArr[10][4]} >Judgment and Tact</label><br>
+          <label><input type=checkbox value=0 {$checkedArr[10][0]} > Leadership</label><br>
+          <label><input type=checkbox value=1 {$checkedArr[10][1]} > Character</label><br>
+          <label><input type=checkbox value=2 {$checkedArr[10][2]} > Professionalism</label><br>
+          <label><input type=checkbox value=3 {$checkedArr[10][3]} > Team Driven</label><br>
+          <label><input type=checkbox value=4 {$checkedArr[10][4]} > Judgment and Tact</label><br>
 
 
         <br><br>
@@ -285,11 +285,11 @@
         <br><br>
 
         <p>What is the trend of their overall performance?</p>
-          <label><input type=radio value=0 {$checkedArr[9][0]} >Maintaining Exemplary Performance</label><br>
-          <label><input type=radio value=1 {$checkedArr[9][1]} >Maintaining Good Performance</label><br>
-          <label><input type=radio value=2 {$checkedArr[9][2]} >Improving Performance</label><br>
-          <label><input type=radio value=3 {$checkedArr[9][3]} >Declining Performance</label><br>
-          <label><input type=radio value=4 {$checkedArr[9][4]} >Maintaining Poor Performance</label>
+          <label><input type=radio value=0 {$checkedArr[9][0]} > Maintaining Exemplary Performance</label><br>
+          <label><input type=radio value=1 {$checkedArr[9][1]} > Maintaining Good Performance</label><br>
+          <label><input type=radio value=2 {$checkedArr[9][2]} > Improving Performance</label><br>
+          <label><input type=radio value=3 {$checkedArr[9][3]} > Declining Performance</label><br>
+          <label><input type=radio value=4 {$checkedArr[9][4]} > Maintaining Poor Performance</label>
 
         <br><br>
 
@@ -298,7 +298,7 @@
 
 
       </fieldset>
-    </div><br>";
+    </div>";
 
     addFeedback($revieweeAlpha, $feedback);
   }

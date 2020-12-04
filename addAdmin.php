@@ -1,10 +1,7 @@
 <?php
   session_start();
-  if($_SESSION['user'] != 'm234158')
+  if($_SESSION['user'] != 'm226618')
     header("Location: welcome.html");
-  //CHANGE BACK TO THIS BEFORE PUSH
-  // if($_SESSION['user'] != 'm226618')
-  //   header("Location: welcome.html");
 ?>
 <!DOCTYPE html>
 

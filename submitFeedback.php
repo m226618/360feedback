@@ -13,27 +13,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <style>
-    table, td, th {
-      border: 1px solid black;
-    }
-
-    table {
-      width: 1000px;
-    }
-
-    .scale {
-      width: 200px;
-    }
-
-    .openResponse {
-      width: 500px;
-      height: 50px;
-    }
-  </style>
 
   <script>
-
     function selectClass() {
       var classNames = [document.getElementById("1/C"), document.getElementById("2/C"), document.getElementById("3/C"),
                         document.getElementById("4/C")];
@@ -43,6 +24,40 @@
         if(i != selClass)
           classNames[i].style.display = "none";
       }
+    }
+    </script>
+    <script>
+
+    function oneIsChecked(name) {
+      var arr = [name+"1", name+"2", name+"3", name+"4", name+"5"];
+      for(var i=0; i<arr.length; i++) {
+        if(document.getElementById(arr[i]).checked)
+          return true;
+      }
+      return false;
+    }
+
+    function validate() {
+      if(document.getElementById("i1").value.length == 0 || document.getElementById("i2").value.length == 0 ||
+          document.getElementById("i3").value.length == 0 || document.getElementById("i4").value.length == 0 || document.getElementById("i5").value.length == 0) {
+            alert("Please complete all parts of the feedback form before you submit!");
+            return false;
+      }
+/*
+      var selectInputs = [document.getElementsByName("a1"), document.getElementsByName("a2"), document.getElementsByName("b1"),
+      document.getElementsByName("b2"), document.getElementsByName("b3"), document.getElementsByName("c1"),
+      document.getElementsByName("c2"), document.getElementsByName("d1"), document.getElementsByName("d2"),
+      document.getElementsByName("cat[]"), document.getElementsByName("trend")];
+*/
+      if(!oneIsChecked("a1") || !oneIsChecked("a2") || !oneIsChecked("b1") || !oneIsChecked("b2") || !oneIsChecked("b3") ||
+    !oneIsChecked("c1") || !oneIsChecked("c2") || !oneIsChecked("d1") || !oneIsChecked("d2") ||
+  !oneIsChecked("cat") || !oneIsChecked("trend")) {
+        alert("Please complete all parts of the feedback form before you submit!");
+        return false;
+      }
+
+
+      return true;
     }
 
   </script>
@@ -68,9 +83,9 @@
 			<li class="nav-item">
 				<a class="nav-link" href="stats.php">Feedback Statistics</a>
 			</li>
-			<?php
-			}
-			?>
+      <?php
+      }
+      ?>
 			<li class="nav-item">
 				<a class="nav-link" href="logout.php">Logout</a>
 			</li>
@@ -84,7 +99,7 @@
   <div class="container">
   <div class="jumbotron">
   <div class="row">
-  
+
   <form method="post" action="submit.php">
     <div class="col">
     <label> Select the Class of the Mid you want to provide feedback for:
@@ -174,7 +189,7 @@
     <br>
     <div class="col">
     <label>On a scale of 1-5, how well do you know this person?
-      <input type="number" name="familiarity" min="1" max="5">
+      <input id="i1" type="number" name="familiarity" min="1" max="5">
     </label>
     </div>
     <br>
@@ -191,11 +206,11 @@
         </td>
       </tr>
       <tr>
-        <td class=scale><label><input type=radio name=a1 value=0>1 Below Standard</label></td>
-        <td class=scale><label><input type=radio name=a1 value=1>2</label></td>
-        <td class=scale><label><input type=radio name=a1 value=2>3 Meets Standard</label></td>
-        <td class=scale><label><input type=radio name=a1 value=3>4</label></td>
-        <td class=scale><label><input type=radio name=a1 value=4>5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=a1 id=a11 value=0> 1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=a1 id=a12 value=1> 2</label></td>
+        <td class=scale><label><input type=radio name=a1 id=a13 value=2> 3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=a1 id=a14 value=3> 4</label></td>
+        <td class=scale><label><input type=radio name=a1 id=a15 value=4> 5 Exceeds Standard</label></td>
       </tr>
       <tr>
         <td colspan=5><b>2. Developing Subordinates.</b> Commitment to train, educate and challenge subordinates, cultivating personal and professional development
@@ -203,11 +218,11 @@
         </td>
       </tr>
       <tr>
-        <td class=scale><label><input type=radio name=a2 value=0>1 Below Standard</label></td>
-        <td class=scale><label><input type=radio name=a2 value=1>2</label></td>
-        <td class=scale><label><input type=radio name=a2 value=2>3 Meets Standard</label></td>
-        <td class=scale><label><input type=radio name=a2 value=3>4</label></td>
-        <td class=scale><label><input type=radio name=a2 value=4>5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=a2 id=a21 value=0> 1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=a2 id=a22 value=1> 2</label></td>
+        <td class=scale><label><input type=radio name=a2 id=a23  value=2> 3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=a2 id=a24 value=3> 4</label></td>
+        <td class=scale><label><input type=radio name=a2 id=a25 value=4> 5 Exceeds Standard</label></td>
       </tr>
       <tr>
         <th colspan=5>B. Character. Behavior and actions consistent with Navy and Marine Corps core values of honor, courage, and commitment.</th>
@@ -217,33 +232,33 @@
           decisions and actions. Demonstrating integrity by the consistent alignment of one's actions with the values, standards, and expectations of USNA.</td>
       </tr>
       <tr>
-        <td class=scale><label><input type=radio name=b1 value=0>1 Below Standard</label></td>
-        <td class=scale><label><input type=radio name=b1 value=1>2</label></td>
-        <td class=scale><label><input type=radio name=b1 value=2>3 Meets Standard</label></td>
-        <td class=scale><label><input type=radio name=b1 value=3>4</label></td>
-        <td class=scale><label><input type=radio name=b1 value=4>5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=b1 id=b11 value=0> 1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=b1 id=b12 value=1> 2</label></td>
+        <td class=scale><label><input type=radio name=b1 id=b13 value=2> 3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=b1 id=b14 value=3> 4</label></td>
+        <td class=scale><label><input type=radio name=b1 id=b15 value=4> 5 Exceeds Standard</label></td>
       </tr>
       <tr>
         <td colspan=5><b>2. Courage.</b> Possessing the moral, mental and physical strength to overcome challenges, demonstrate the highest standards
           of personal conduct, and make tough decisions under stress regardless of personal consequences.</td>
       </tr>
       <tr>
-        <td class=scale><label><input type=radio name=b2 value=0>1 Below Standard</label></td>
-        <td class=scale><label><input type=radio name=b2 value=1>2</label></td>
-        <td class=scale><label><input type=radio name=b2 value=2>3 Meets Standard</label></td>
-        <td class=scale><label><input type=radio name=b2 value=3>4</label></td>
-        <td class=scale><label><input type=radio name=b2 value=4>5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=b2 id=b21 value=0> 1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=b2 id=b22 value=1> 2</label></td>
+        <td class=scale><label><input type=radio name=b2 id=b23 value=2> 3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=b2 id=b24 value=3> 4</label></td>
+        <td class=scale><label><input type=radio name=b2 id=b25 value=4> 5 Exceeds Standard</label></td>
       </tr>
       <tr>
         <td colspan=5><b>3. Commitment.</b> Doing one's duty in all things at all times with fidelity. Selflessly devoting oneself to our institution and heritage.
           Aspiring to achieve excellence without arrogance.</td>
       </tr>
       <tr>
-        <td class=scale><label><input type=radio name=b3 value=0>1 Below Standard</label></td>
-        <td class=scale><label><input type=radio name=b3 value=1>2</label></td>
-        <td class=scale><label><input type=radio name=b3 value=2>3 Meets Standard</label></td>
-        <td class=scale><label><input type=radio name=b3 value=3>4</label></td>
-        <td class=scale><label><input type=radio name=b3 value=4>5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=b3 id=b31 value=0> 1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=b3 id=b32 value=1> 2</label></td>
+        <td class=scale><label><input type=radio name=b3 id=b33 value=2> 3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=b3 id=b34 value=3> 4</label></td>
+        <td class=scale><label><input type=radio name=b3 id=b35 value=4> 5 Exceeds Standard</label></td>
       </tr>
       <tr>
         <th colspan=5>C. Professionalism. Demonstrated initiative and competence to consistently produce quality results. Dedicated to the profession
@@ -254,22 +269,22 @@
           warfighting and leadership aptitude. Integrates naval traditions and customs into daily practices and leadership decisions.</td>
       </tr>
       <tr>
-        <td class=scale><label><input type=radio name=c1 value=0>1 Below Standard</label></td>
-        <td class=scale><label><input type=radio name=c1 value=1>2</label></td>
-        <td class=scale><label><input type=radio name=c1 value=2>3 Meets Standard</label></td>
-        <td class=scale><label><input type=radio name=c1 value=3>4</label></td>
-        <td class=scale><label><input type=radio name=c1 value=4>5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=c1 id=c11 value=0> 1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=c1 id=c12 value=1> 2</label></td>
+        <td class=scale><label><input type=radio name=c1 id=c13 value=2> 3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=c1 id=c14 value=3> 4</label></td>
+        <td class=scale><label><input type=radio name=c1 id=c15 value=4> 5 Exceeds Standard</label></td>
       </tr>
       <tr>
         <td colspan=5><b>2. Competence.</b> The ability to complete tasks effectively and efficiently. Demonstrates a sufficiency of knowledge
           that enables one to act in a variety of situations.</td>
       </tr>
       <tr>
-        <td class=scale><label><input type=radio name=c2 value=0>1 Below Standard</label></td>
-        <td class=scale><label><input type=radio name=c2 value=1>2</label></td>
-        <td class=scale><label><input type=radio name=c2 value=2>3 Meets Standard</label></td>
-        <td class=scale><label><input type=radio name=c2 value=3>4</label></td>
-        <td class=scale><label><input type=radio name=c2 value=4>5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=c2 id=c21 value=0> 1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=c2 id=c22 value=1> 2</label></td>
+        <td class=scale><label><input type=radio name=c2 id=c23 value=2> 3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=c2 id=c24 value=3> 4</label></td>
+        <td class=scale><label><input type=radio name=c2 id=c25 value=4> 5 Exceeds Standard</label></td>
       </tr>
       <tr>
         <th colspan=5>D. Team Driven. Values diversity of thought and contributes to team building and team results over personal achievement.</th>
@@ -278,74 +293,74 @@
         <td colspan=5><b>1. Values Diversity of Thought</b></td>
       </tr>
       <tr>
-        <td class=scale><label><input type=radio name=d1 value=0>1 Below Standard</label></td>
-        <td class=scale><label><input type=radio name=d1 value=1>2</label></td>
-        <td class=scale><label><input type=radio name=d1 value=2>3 Meets Standard</label></td>
-        <td class=scale><label><input type=radio name=d1 value=3>4</label></td>
-        <td class=scale><label><input type=radio name=d1 value=4>5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=d1 id=d11 value=0> 1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=d1 id=d12 value=1> 2</label></td>
+        <td class=scale><label><input type=radio name=d1 id=d13 value=2> 3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=d1 id=d14 value=3> 4</label></td>
+        <td class=scale><label><input type=radio name=d1 id=d15 value=4> 5 Exceeds Standard</label></td>
       </tr>
       <tr>
         <td colspan=5><b>2. Contributes to Team Building and Team Results over Personal Achievement</b></td>
       </tr>
       <tr>
-        <td class=scale><label><input type=radio name=d2 value=0>1 Below Standard</label></td>
-        <td class=scale><label><input type=radio name=d2 value=1>2</label></td>
-        <td class=scale><label><input type=radio name=d2 value=2>3 Meets Standard</label></td>
-        <td class=scale><label><input type=radio name=d2 value=3>4</label></td>
-        <td class=scale><label><input type=radio name=d2 value=4>5 Exceeds Standard</label></td>
+        <td class=scale><label><input type=radio name=d2 id=d21 value=0> 1 Below Standard</label></td>
+        <td class=scale><label><input type=radio name=d2 id=d22 value=1> 2</label></td>
+        <td class=scale><label><input type=radio name=d2 id=d23 value=2> 3 Meets Standard</label></td>
+        <td class=scale><label><input type=radio name=d2 id=d24 value=3> 4</label></td>
+        <td class=scale><label><input type=radio name=d2 id=d25 value=4> 5 Exceeds Standard</label></td>
       </tr>
     </table>
     </div>
   <br>
   <div class="col">
   <p>In what areas are you providing feedback? Select all that apply.</p>
-    <label><input type="checkbox" name="cat[]" value="0">Leadership</label><br>
-    <label><input type="checkbox" name="cat[]" value="1">Character</label><br>
-    <label><input type="checkbox" name="cat[]" value="2">Professionalism</label><br>
-    <label><input type="checkbox" name="cat[]" value="3">Team Driven</label><br>
-    <label><input type="checkbox" name="cat[]" value="4">Judgment and Tact</label><br>
+    <label><input type="checkbox" name="cat[]" id=cat1 value="0"> Leadership</label><br>
+    <label><input type="checkbox" name="cat[]" id=cat2 value="1"> Character</label><br>
+    <label><input type="checkbox" name="cat[]" id=cat3 value="2"> Professionalism</label><br>
+    <label><input type="checkbox" name="cat[]" id=cat4 value="3"> Team Driven</label><br>
+    <label><input type="checkbox" name="cat[]" id=cat5 value="4"> Judgment and Tact</label><br>
   </div>
 
   <br>
   <div class="col">
   <label><p>What are their strengths? Please elaborate and include relevant examples. If you gave a score higher than a
     3 in any of the categories listed above, give your reasons here.</p>
-    <textarea name="strengths" class="openResponse"></textarea>
+    <textarea id="i2" name="strengths" class="openResponse"></textarea>
   </label>
   </div>
   <br>
   <div class="col">
   <label><p>What are their areas of improvement? Please elaborate and include relevant examples. If you gave a score lower than a
     3 in any of the categories listed above, give your reasons here.</p>
-    <textarea name="areasOfI" class="openResponse"></textarea>
+    <textarea id="i3" name="areasOfI" class="openResponse"></textarea>
   </label>
   </div>
   <br>
   <div class="col">
   <label><p>What can they do to improve in these areas?</p>
-    <textarea name="waysImprove" class="openResponse"></textarea>
+    <textarea id="i4" name="waysImprove" class="openResponse"></textarea>
   </label>
   </div>
   <br>
   <div class="col">
   <p>What is the trend of their overall performance?</p>
-    <label><input type="radio" name="trend" value="0">Maintaining Exemplary Performance</label><br>
-    <label><input type="radio" name="trend" value="1">Maintaining Good Performance</label><br>
-    <label><input type="radio" name="trend" value="2">Improving Performance</label><br>
-    <label><input type="radio" name="trend" value="3">Declining Performance</label><br>
-    <label><input type="radio" name="trend" value="4">Maintaining Poor Performance</label>
+    <label><input type="radio" name="trend" id=trend1 value="0"> Maintaining Exemplary Performance</label><br>
+    <label><input type="radio" name="trend" id=trend2 value="1"> Maintaining Good Performance</label><br>
+    <label><input type="radio" name="trend" id=trend3 value="2"> Improving Performance</label><br>
+    <label><input type="radio" name="trend" id=trend4 value="3"> Declining Performance</label><br>
+    <label><input type="radio" name="trend" id=trend5 value="4"> Maintaining Poor Performance</label>
   </div>
   <br>
   <div class="col">
   <label><p>How have you observed this trend?</p>
-    <textarea name="trendReason" class="openResponse"></textarea>
+    <textarea id="i5" name="trendReason" class="openResponse"></textarea>
   </label>
   </div>
   <br>
 
   <br>
   <div class="col">
-  <input type="submit" class="btn btn-primary" value="Submit">
+  <input type="submit" class="btn btn-primary" value="Submit" onclick="return validate()">
   </div>
   </form>
   </div>
