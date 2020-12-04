@@ -1,3 +1,8 @@
+<!--
+Author: Courtney Tse
+Creation Date: October 20
+Description: Page where midshipmen can submit feedback for their company mates.
+-->
 <?php
   session_start();
   if(empty($_SESSION["user"]) && !isset($_SESSION["user"]))
@@ -15,6 +20,7 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 
   <script>
+    //show dropdown menu of specified class once a class is selected
     function selectClass() {
       var classNames = [document.getElementById("1/C"), document.getElementById("2/C"), document.getElementById("3/C"),
                         document.getElementById("4/C")];
@@ -27,7 +33,7 @@
     }
     </script>
     <script>
-
+    //check if a radiobutton or checkbox is checked
     function oneIsChecked(name) {
       var arr = [name+"1", name+"2", name+"3", name+"4", name+"5"];
       for(var i=0; i<arr.length; i++) {
@@ -37,6 +43,7 @@
       return false;
     }
 
+    //make sure all parts of form have been completed, show alert if not
     function validate() {
       if(document.getElementById("i1").value.length == 0 || document.getElementById("i2").value.length == 0 ||
           document.getElementById("i3").value.length == 0 || document.getElementById("i4").value.length == 0 || document.getElementById("i5").value.length == 0) {
@@ -91,9 +98,6 @@
 			</li>
 		</ul>
 	</div>
-  <!--explanation / tips for writing good feedback
-
-	  //feedback form (action="submit.php")-->
 
   <?php require_once("middata_functions.inc.php"); ?>
   <div class="container">

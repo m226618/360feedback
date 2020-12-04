@@ -1,3 +1,8 @@
+<!--
+Author: Courtney Tse
+Creation Date: October 20
+Description: Called when user submits feedback from the submit feedback page
+-->
 <?php
   // Using sessions to store user login information
   session_start();
@@ -9,24 +14,6 @@
 <html>
 <head lang="en"><meta charset = "utf-8">
   <title>Submit</title>
-  <style>
-    table, td, th {
-      border: 1px solid black;
-    }
-
-    table {
-      width: 1000px;
-    }
-
-    .scale {
-      width: 200px;
-    }
-
-    .openResponse {
-      width: 500px;
-      height: 50px;
-    }
-  </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="styles.css">

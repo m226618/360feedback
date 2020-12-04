@@ -1,3 +1,9 @@
+<!--
+Author: Courtney Tse
+Creation Date: October 20
+Description: Page where midshipmen can view feedback that has been submitted for them by their company mates.
+-->
+
 <?php
   require_once('middata_functions.inc.php');
   session_start();
@@ -19,6 +25,7 @@
 
   <script>
 
+  //check if feedback has been submitted for this user, render appropriate message if no feedback has been submitted yet
   function feedbackStatus() {
     var top = document.getElementById("top");
     var feedbackDivs = document.getElementsByClassName("feedback");
@@ -29,6 +36,7 @@
     return true;
   }
 
+  //create dropdown menu of names that the user can read feedback from
   function createSelector() {
     var feedbackDivs = document.getElementsByClassName("feedback");
     var selector = document.getElementById("selector");
@@ -42,7 +50,7 @@
 
 
   }
-
+    //display feedback for the selected individual
     function viewFeedback() {
       var feedbackDivs = document.getElementsByClassName("feedback");
       var selector = document.getElementById("reviewee");
@@ -101,6 +109,7 @@
 ?>
 
  <script>
+   //if feedback has been submitted, create dropdown menu.
    if(feedbackStatus()) {
      createSelector();
    }
