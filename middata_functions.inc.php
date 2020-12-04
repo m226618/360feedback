@@ -1,3 +1,4 @@
+<!-- Author: John Babiak -->
 <?php
 
 /*
@@ -20,6 +21,20 @@
   the getMidsInCo(class) function returns all the midshipmen in the same
   company and a specified class year
 
+  the function getFeedbackRcvd(alpha, co) returns the amount of feedback that
+  a specified mid in a specified company has recieved
+
+  the function getFeedbackSubm(alpha, co) returns the amount of feedback that
+  a specified mid in a specified company has submitted
+
+  the incFeedbackRcvd(alpha, co) function increments the amount of feedback a
+  specified mid in a specified company has recieved
+
+  the incFeedbackSubm(alpha, co) function increments the amount of feedback a
+  specified med in a specified company has submitted
+
+  the getMidsInCompany(co) function returns an array of all the mids in a
+  specified company
 */
 
 /*
@@ -411,7 +426,6 @@ function incFeedbackSubm($alpha, $co)
     if(strcmp($alpha, substr($orig[$co][$y][$num][0], 0, 6)) == 0 && !empty($alpha))
     {
       $orig[$_SESSION['co']][$y][$num][2] += 1;
-      echo $orig[$_SESSION['co']][$y][$num][2];
     }
   }
   //opening serialized array file

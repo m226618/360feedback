@@ -1,4 +1,8 @@
+<!-- a page only viewable by admin for viewing submission information about
+  midshipman -->
+<!-- Author: John Babiak -->
 <?php
+//start session, redirect to welcome.html if user is not logged in
   session_start();
   require_once('middata_functions.inc.php');
   if(empty($_SESSION["user"]) && !isset($_SESSION["user"]))
@@ -16,6 +20,7 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
+<!-- navbar for links to other pages -->
 <body class="text-dark text-center">
 <div class="jumbotron">
 		<div class="display-4">360 Feedback - Statistics</div>
@@ -41,6 +46,7 @@
 
 
 <?php
+//check if the admin is a user and only display the page if they are
 if(empty($_SESSION["admin"]) && !isset($_SESSION["admin"])){
 ?>
   <div class="row justify-content-center">
@@ -52,9 +58,11 @@ if(empty($_SESSION["admin"]) && !isset($_SESSION["admin"])){
 }
 else {
 ?>
+<!-- this is diplayed if the user is an admin -->
   <div class="row justify-content-center">
     <div class="col">
       <div class="jumbotron">
+        <!-- form for searching for a company's information -->
       <form>
         <label>Enter desired company: <input type='number' id='company' min = '1' max = '30'></label>
         <br><br>
@@ -71,6 +79,7 @@ else {
 </div>
 
 <script>
+  //using XML to make asynchronous requests to getStats to view information
   function search(){
     // Create a new XMLHttpRequest Object (the core of Ajax)
     var xhttp = new XMLHttpRequest();
@@ -94,14 +103,14 @@ else {
          // was a JSON encoded string, you should use JSON.parse()
 
          // In this example, we are placing the results into the HTML
-         // tag identified by "demo"
+         // tag identified by "out"
          var rcvd = xhttp.responseText;
          document.getElementById("out").innerHTML = rcvd;
       }
     };
 
     // Inform the XMLHttpRequest object that we want to use the GET method
-    // calling the URL generateContent.php (in the same folder as current code), and that we want the
+    // calling the URL getStats.php (in the same folder as current code), and that we want the
     // connection to be performed asynchronously (the true), this will
     // ALWAYS be set to true, otherwise your users web page will be unresponsive.
     var str = String(document.getElementById("company").value);

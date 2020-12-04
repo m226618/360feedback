@@ -1,3 +1,5 @@
+<!-- This page is used for the user to login and be given session variables -->
+<!-- Written by Jeff Kenney and edited by John Babiak and Coutney Tse -->
 <?php
   // Using sessions to store user login information
   session_start();
@@ -38,6 +40,8 @@
 
     // To assist with your debugging, this example script will display
     // the information that was returned for your review.
+
+    //set session variables for later use such as username, alpha, company, etc.
     if(!empty($USER_CREDENTIALS))
     {
       $_SESSION['user'] = $USER_CREDENTIALS['user'];
@@ -46,6 +50,8 @@
       $_SESSION['alpha'] = substr($_SESSION["user"], 1, 7);
       $_SESSION['co'] = getCo($_SESSION['alpha']);
       $_SESSION['maxYear'] = getMaxYear();
+
+      //check if the user is on the whitelist
       $fp = fopen("whitelist.txt", 'r');
       if($fopen)
       {
@@ -59,6 +65,8 @@
           $len = strlen($_SESSION['user']);
           if(substr($line, 0, $len) == $_SESSION['user'])
           {
+            //if we find them in the whitelist they get a special
+            //admin session variable 
             echo substr($line, 0, $len);
             $_SESSION['admin'] = "true";
             break;
