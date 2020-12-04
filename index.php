@@ -1,6 +1,6 @@
+<!-- Redirects to the welcome page -->
+<!-- Author: John Babiak -->
 <!DOCTYPE html>
-
-<!-- A bare bones web page to start IT350 assignments with -->
 
 <html lang="en">
 
@@ -12,8 +12,11 @@
 <body>
 <h1> Redirecting to welcome page.. </h1>
 <?php
+  //here is where the redirect happens
   header("Location: welcome.html");
  ?>
+
+ <!-- backup link if something goes wrong with redirect -->
  <p>If you are not redirected, click <a href="welcome.html">here</a> </p>
 
 </body>

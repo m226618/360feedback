@@ -1,4 +1,8 @@
+<!-- Main page that has links to submitFeedback, getFeedback and stats if the
+  user is an admin -->
+<!-- Authors: John Babiak, Courtney Tse, Ethan Sohn and Jack Metcalf -->
 <?php
+//start the session, redirect to welcome.html if not logged in
   session_start();
   if(empty($_SESSION["user"]) && !isset($_SESSION["user"]))
   header("Location: welcome.html");
@@ -12,6 +16,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+
+<!-- all pertinent links listed in the page description are listed below -->
 <body class="text-dark text-center">
 	<div class="jumbotron">
 		<div class="display-4">360 Feedback - Home</div>
@@ -26,7 +32,9 @@
 			<li class="nav-item">
 				<a class="nav-link" href="submitFeedback.php">Submit Feedback</a>
 			</li>
+
 			<?php
+      //show link to stats page if the user is an admin
 			if(!(empty($_SESSION["admin"]) && !isset($_SESSION["admin"]))){
 			?>
 			<li class="nav-item">
@@ -40,43 +48,16 @@
 			</li>
 		</ul>
 	</div>
-	<!-- <div class="container">
-		<div class="row text-center">
-			<div class="col">
-				<div class="jumbotron">
-					<h4>View Feedback</h4>
-					<a href="getFeedback.php" class="btn btn-primary btn-block" role="button">Click Here</a>
-				</div>
-			</div>
-			<div class="col">
-				<div class="jumbotron">
-					<h4>Submit Feedback</h4>
-					<a href="submitFeedback.php" class="btn btn-primary btn-block" role="button">Click Here</a>
-				</div>
-			</div>
-			<div class="col">
-				<div class="jumbotron">
-					<h4>Feedback Statistics</h4>
-					<a href="stats.php" class="btn btn-primary btn-block" role="button">Click Here</a>
-				</div>
-			</div>
-		</div>
-		<div class="row text-center">
-			<div class="col">
-				<div class="jumbotron bg-white">
-					<a href="logout.php" class="btn btn-primary btn-large" role="button">Logout</a>
-				</div>
-			</div>
-		</div>
-	</div> -->
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col">
 				<div class="jumbotron">
 					<h4>Click one of the following to proceed</h4>
+          <!-- links are also added below the navbar -->
 					<a href="getFeedback.php" class="btn btn-primary btn-block" role="button">View Feedback</a>
 					<a href="submitFeedback.php" class="btn btn-primary btn-block" role="button">Submit Feedback</a>
 					<?php
+          //once again, only show stats link if user is an admin 
 					if(!(empty($_SESSION["admin"]) && !isset($_SESSION["admin"]))){
 					?>
 					<a href="stats.php" class="btn btn-primary btn-block" role="button">Feedback Statistics</a>
@@ -93,4 +74,3 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
 </html>
-

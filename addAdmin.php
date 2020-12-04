@@ -1,4 +1,9 @@
+<!-- this page is only accessible by the defined super admin to add admin
+    accounts to the whitelist -->
+<!-- Authors: Jack Metcalf and John Babiak -->
 <?php
+//start session, check if user is the super admin. If they are not, redirect
+//to the welcome page
   session_start();
   if($_SESSION['user'] != 'm226618')
     header("Location: welcome.html");
@@ -12,6 +17,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+
+<!-- form for entering in the new admin's information -->
 <body class="text-dark text-center">
   <div class="jumbotron display-4">Add Administrator</div>
   <div class="jumbotron">
@@ -24,7 +31,10 @@
       </div>
     </form>
   </div>
+
   <?php
+  //php script that is called by the above form, grabs post information and
+  //writes the given username to the admin whitelist file 
     $fp = fopen("whitelist.txt", 'a');
     if(!$fp){
     ?>

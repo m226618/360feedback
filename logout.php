@@ -1,3 +1,5 @@
+<!-- users are directed to this page when they want to logout of their account -->
+<!-- Authors: John Babiak and Courtney Tse -->
 <?php
   session_start();
 ?>
@@ -26,6 +28,7 @@
   }
   else
   {
+    //destroy all session variables and redirect to welcome.html
     unset($_SESSION["user"]);
     unset($_SESSION['first']);
     unset($_SESSION['last']);
