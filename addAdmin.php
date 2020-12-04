@@ -35,6 +35,9 @@
     <?php
     }
     fwrite($fp, $_POST['email'] . "\n");
+    $email = $_POST['email'];
+    $message = "$email:\n\nYour administrator account has successfully been created.\n\nYou will now have access to feedback statistics and other admin-only features.";
+    mail($email, "Admin Account Activated", $message);
   ?>
 
   <div class="row text-center justify-content-center">
