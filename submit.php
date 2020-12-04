@@ -115,8 +115,8 @@ Description: Called when user submits feedback from the submit feedback page
     //name of reviewer
     $name = $_SESSION['first']." ".$_SESSION['last'];
 
-    //if(substr($_SESSION["user"], 1, 3)==$_SESSION['maxYear'])
-      //$name = "Plebe"; //NEED TO TEST WITH A (FRIENDLY) PLEBE
+    if(substr($_SESSION["user"], 1, 3)==$_SESSION['maxYear'])
+      $name = "Plebe"; //NEED TO TEST WITH A (FRIENDLY) PLEBE
 
     $feedback = "
     <div id=\"$name\" class=\"feedback\">
