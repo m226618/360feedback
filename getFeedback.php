@@ -41,10 +41,10 @@ Description: Page where midshipmen can view feedback that has been submitted for
     var feedbackDivs = document.getElementsByClassName("feedback");
     var selector = document.getElementById("selector");
 
-    var str = "<select name=reviewee id=reviewee onload=viewFeedback() onchange=viewFeedback()>";
+    var str = "View feedback from: <select name=reviewee id=reviewee onload=viewFeedback() onchange=viewFeedback()>";
     for(var i=0; i<feedbackDivs.length; i++)
       str += "<option>" + feedbackDivs[i].id + "</option>";
-    str += "</select>";
+    str += "</select><br><br>";
 
     selector.innerHTML = str;
 
