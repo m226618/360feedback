@@ -27,7 +27,7 @@ Description: Called when user submits feedback from the submit feedback page
 				<a class="nav-link" href="myAccount.php">Home</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="getFeedback.php">Get Feedback</a>
+				<a class="nav-link" href="getFeedback.php">View Feedback</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link active" href="submitFeedback.php">Submit Feedback</a>
@@ -242,11 +242,11 @@ Description: Called when user submits feedback from the submit feedback page
         </table>
 
         <p>In what areas are you providing feedback? Select all that apply.</p>
-          <label><input type=checkbox value=0 {$checkedArr[10][0]} > Leadership</label><br>
-          <label><input type=checkbox value=1 {$checkedArr[10][1]} > Character</label><br>
-          <label><input type=checkbox value=2 {$checkedArr[10][2]} > Professionalism</label><br>
-          <label><input type=checkbox value=3 {$checkedArr[10][3]} > Team Driven</label><br>
-          <label><input type=checkbox value=4 {$checkedArr[10][4]} > Judgment and Tact</label><br>
+          <label><input type=checkbox value=0 {$checkedArr[10][0]} disabled> Leadership</label><br>
+          <label><input type=checkbox value=1 {$checkedArr[10][1]} disabled> Character</label><br>
+          <label><input type=checkbox value=2 {$checkedArr[10][2]} disabled> Professionalism</label><br>
+          <label><input type=checkbox value=3 {$checkedArr[10][3]} disabled> Team Driven</label><br>
+          <label><input type=checkbox value=4 {$checkedArr[10][4]} disabled> Judgment and Tact</label><br>
 
 
         <br><br>

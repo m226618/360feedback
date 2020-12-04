@@ -77,7 +77,7 @@ Description: Page where midshipmen can view feedback that has been submitted for
 				<a class="nav-link" href="myAccount.php">Home</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link active" href="getFeedback.php">Get Feedback</a>
+				<a class="nav-link active" href="getFeedback.php">View Feedback</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="submitFeedback.php">Submit Feedback</a>

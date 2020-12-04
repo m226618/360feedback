@@ -27,7 +27,7 @@
 				<a class="nav-link active" href="myAccount.php">Home</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="getFeedback.php">Get Feedback</a>
+				<a class="nav-link" href="getFeedback.php">View Feedback</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="submitFeedback.php">Submit Feedback</a>
