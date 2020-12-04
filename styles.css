@@ -58,6 +58,25 @@
   display: block;
 }
 
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scale {
+  width: 200px;
+}
+
+.openResponse {
+  width: 1000px;
+  height: 150px;
+}
+
 /*nav ul {
   margin-left: 0px;
   list-style-type: none;
