@@ -292,6 +292,7 @@ Description: Called when user submits feedback from the submit feedback page
 
   incFeedbackSubm($_SESSION['alpha'], $_SESSION['co']);
   incFeedbackRcvd($revieweeAlpha, $_SESSION['co']);
+  echo "<h4>Your feedback has been submitted.</h4>";
 
   ?>
 
@@ -299,7 +300,6 @@ Description: Called when user submits feedback from the submit feedback page
   <div class="row text-center justify-content-center">
     <div class="col">
       <div class="jumbotron">
-        <h4>Your feedback has been submitted.</h4>
         <a href="myAccount.php" class="btn btn-primary" role="button">Home</a>
         <a href="submitFeedback.php" class="btn btn-primary" role="button">Submit more feedback</a>
         <a href="logout.php" class="btn btn-primary" role="button">logout</a>
